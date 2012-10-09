@@ -1,0 +1,31 @@
+(require 'package)
+(add-to-list 'package-archives '("elpa" .      "http://tromey.com/elpa/"))
+(add-to-list 'package-archives '("gnu" .       "http://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'load-path "~/.emacs.d/vendor")
+(add-to-list 'load-path "~/.emacs.d/vendor/auto-complete/")
+
+;; Do not initialize packages for now
+(package-initialize t)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(defvar my-package-load-list '(rainbow-mode
+                               maxframe color-theme inf-ruby ruby-mode ruby-electric rvm
+                               flymake-ruby hl-line+ dired-single dired-details
+                               coffee-mode haml-mode magit markdown-mode sass-mode
+                               yaml-mode yasnippet
+                               starter-kit-ruby starter-kit)
+  "A list of packages to ensure are installed at launch.")
+
+(dolist (p my-package-load-list)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
+(dolist (p my-package-load-list)
+  (let ((version (package-desc-vers (cdr (assq p package-alist)))))
+    (package-activate p version)))
+
+(setq custom-file "~/.emacs.d/sotakone-custom-variables.el")
+(load custom-file)

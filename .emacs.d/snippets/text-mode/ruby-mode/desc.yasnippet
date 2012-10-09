@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name : describe Something do ... end
+# group: rspec
+# --
+require 'spec_helper'
+
+describe ${1:What} do
+  before(:each) do
+    $0
+  end
+end

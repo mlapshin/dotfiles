@@ -1,0 +1,30 @@
+(defalias 'yes-or-no-p 'y-or-n-p)
+(require 'mark-lines)
+
+;; Kill current buffer
+(defun kill-current-buffer ()
+      (interactive)
+      (kill-buffer (current-buffer)))
+
+(define-key global-map  (kbd "C-x C-k") 'kill-current-buffer)
+(define-key global-map "\C-x\C-r" 'rgrep)
+
+(global-set-key "\C-x\C-b" 'ibuffer)
+(global-set-key (kbd "C-x C-w") 'whitespace-cleanup)
+
+(global-set-key (kbd "<f5>") 'compile)
+
+(defvar window-maximized nil
+  "When t, window is maximized and next call to maximize-or-balance-window
+function will balance window instead of maximizing it")
+
+(defun maximize-or-balance-window ()
+  "Maximizes or balances current window"
+  (interactive)
+  (message "Window maximized: %s" window-maximized)
+  (if window-maximized
+      (balance-windows)
+    (maximize-window))
+  (setf window-maximized (not window-maximized)))
+
+(global-set-key (kbd "<f12>") 'maximize-or-balance-window)
