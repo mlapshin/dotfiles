@@ -8,3 +8,8 @@ ln -sfvT /home/sotakone/dotfiles/.vimrc /home/sotakone/.vimrc
 ln -sfvT /home/sotakone/dotfiles/.Xresources /home/sotakone/.Xresources
 ln -sfvT /home/sotakone/dotfiles/.xinitrc /home/sotakone/.xinitrc
 ln -sfvT /home/sotakone/dotfiles/.xsession /home/sotakone/.xsession
+ln -sfvT /home/sotakone/dotfiles/.xmodmaprc /home/sotakone/.xmodmaprc
+
+ln -sfvT /home/sotakone/dotfiles/.gitconfig /home/sotakone/.gitconfig
+ln -sfvT /home/sotakone/dotfiles/.gemrc /home/sotakone/.gemrc
+

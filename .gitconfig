@@ -1,0 +1,11 @@
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+
+[user]
+  name = Mike Lapshin
+  email = sotakone@sotakone.com
+
+[push]
+  default = matching
