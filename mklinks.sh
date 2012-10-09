@@ -13,3 +13,4 @@ ln -sfvT /home/sotakone/dotfiles/.xmodmaprc /home/sotakone/.xmodmaprc
 ln -sfvT /home/sotakone/dotfiles/.gitconfig /home/sotakone/.gitconfig
 ln -sfvT /home/sotakone/dotfiles/.gemrc /home/sotakone/.gemrc
 
+ln -sfvT /home/sotakone/dotfiles/.bashrc /home/sotakone/.bashrc
