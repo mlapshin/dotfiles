@@ -13,6 +13,7 @@
                  (flymake-ruby-load)
                  (paredit-mode 0)
                  (flymake-mode t)
+                 (wrap-region-mode t)
                  (define-key ruby-mode-map (kbd "C-j") 'newline)
                  (define-key ruby-mode-map "\e\C-a" nil)
                  (define-key ruby-mode-map "\e\C-h" nil)

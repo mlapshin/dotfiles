@@ -14,6 +14,8 @@
 
 (global-set-key (kbd "<f5>") 'compile)
 
+(global-unset-key (kbd "C-x C-z"))
+
 (defvar window-maximized nil
   "When t, window is maximized and next call to maximize-or-balance-window
 function will balance window instead of maximizing it")
@@ -28,3 +30,4 @@ function will balance window instead of maximizing it")
   (setf window-maximized (not window-maximized)))
 
 (global-set-key (kbd "<f12>") 'maximize-or-balance-window)
+

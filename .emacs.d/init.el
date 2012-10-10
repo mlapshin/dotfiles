@@ -12,11 +12,11 @@
   (package-refresh-contents))
 
 (defvar my-package-load-list '(rainbow-mode
-                               maxframe color-theme inf-ruby ruby-mode ruby-electric rvm
+                               ido-yes-or-no maxframe color-theme inf-ruby ruby-mode ruby-electric rvm
                                flymake-ruby hl-line+ dired-single dired-details
                                coffee-mode haml-mode magit markdown-mode sass-mode
                                yaml-mode yasnippet
-                               starter-kit-ruby starter-kit)
+                               starter-kit-ruby starter-kit rinari wrap-region)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-package-load-list)
