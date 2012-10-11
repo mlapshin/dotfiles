@@ -5,13 +5,15 @@
 (add-to-list 'load-path "~/.emacs.d/vendor")
 (add-to-list 'load-path "~/.emacs.d/vendor/auto-complete/")
 
+(require 'hippie-exp)
+
 ;; Do not initialize packages for now
 (package-initialize t)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-package-load-list '(rainbow-mode
+(defvar my-package-load-list '(rainbow-mode auto-complete
                                ido-yes-or-no maxframe color-theme inf-ruby ruby-mode ruby-electric rvm
                                flymake-ruby hl-line+ dired-single dired-details
                                coffee-mode haml-mode magit markdown-mode sass-mode

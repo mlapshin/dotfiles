@@ -1,15 +1,9 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (require 'mark-lines)
 
-;; Kill current buffer
-(defun kill-current-buffer ()
-      (interactive)
-      (kill-buffer (current-buffer)))
+(define-key global-map (kbd "C-x C-r") 'rgrep)
 
-(define-key global-map  (kbd "C-x C-k") 'kill-current-buffer)
-(define-key global-map "\C-x\C-r" 'rgrep)
-
-(global-set-key "\C-x\C-b" 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-w") 'whitespace-cleanup)
 
 (global-set-key (kbd "<f5>") 'compile)

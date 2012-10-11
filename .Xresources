@@ -29,7 +29,8 @@ URxvt.color7  : #AAAAAA
 URxvt.color15 : #FFFFFF
 
 URxvt*font: xft:DejaVu Sans Mono:pixelsize=14
-URxvt*letterSpace: -1
+URxvt*letterSpace: -1URxvt*font: xft:DejaVu Sans Mono:pixelsize=14
+
 
 URxvt*transparent: true
 URxvt*shading: 10

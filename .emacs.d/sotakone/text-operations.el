@@ -54,11 +54,9 @@
 (define-key isearch-mode-map (kbd "M-k") 'isearch-repeat-backward)
 
 ; Ctrl+D / Delete
-(global-set-key "\C-d" 'kill-word)
 (global-set-key [delete] 'delete-char)
 
-(global-set-key "\C-c \C-k" 'kill-region)
-(global-set-key "\C-x \C-k" 'kill-region)
+(global-set-key (kbd "C-c C-k") 'kill-region)
 
 ;; Duplicate current line
 (defun duplicate-line (&optional counts)
