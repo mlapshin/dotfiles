@@ -1,5 +1,9 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
+if [ -f ~/.Xresources.$HOSTNAME ]; then
+    xrdb -merge ~/.Xresources.$HOSTNAME
+fi
+
 syndaemon -k -i 1 -d &
 urxvtd &
 

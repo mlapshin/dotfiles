@@ -12,11 +12,6 @@ theme.wallpaper_cmd = { "" }
 -- }}}
 
 -- {{{ Styles
-if os.getenv("HOSTNAME") == 'rusty' then
-   theme.font      = "DejaVu Sans 7"
-else
-   theme.font      = "DejaVu Sans 9"
-end
 
 -- {{{ Colors
 theme.fg_normal = "#DCDCCC"

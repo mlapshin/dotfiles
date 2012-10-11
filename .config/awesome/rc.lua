@@ -4,13 +4,29 @@ require("awful.rules")
 -- Theme handling library
 require("beautiful")
 -- Notification library
--- require("naughty")
+require("naughty")
 require("vicious")
 require("vicious.contrib")
+
+awesome.add_signal("debug::error", function (err)
+                      naughty.notify({ preset = naughty.config.presets.critical,
+                                       title = "Oops, there were errors during startup!",
+                                       text = err })
+                                   end)
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/home/sotakone/.config/awesome/themes/zenburn_custom/theme.lua")
+
+hn = io.popen("hostname")
+hostname = hn:read()
+hn:close()
+
+if hostname == 'rusty' then
+   awesome.font = "DejaVu Sans 7"
+else
+   awesome.font = "DejaVu Sans 9"
+end
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvtc"
@@ -512,8 +528,6 @@ end)
 
 client.add_signal("focus", function(c) c.border_color = "#FF0000" end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-
--- awesome.font_set("Profont 5")
 
 os.execute "/home/sotakone/bin/apodwallpaper &"
 
