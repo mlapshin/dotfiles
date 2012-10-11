@@ -1,6 +1,11 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (require 'mark-lines)
 
+(defun kill-current-buffer ()
+      (interactive)
+      (kill-buffer (current-buffer)))
+
+(define-key global-map  (kbd "C-x C-k") 'kill-current-buffer)
 (define-key global-map (kbd "C-x C-r") 'rgrep)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -24,4 +29,5 @@ function will balance window instead of maximizing it")
   (setf window-maximized (not window-maximized)))
 
 (global-set-key (kbd "<f12>") 'maximize-or-balance-window)
+
 

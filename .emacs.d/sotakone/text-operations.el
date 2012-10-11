@@ -58,16 +58,20 @@
 
 (global-set-key (kbd "C-c C-k") 'kill-region)
 
-;; Duplicate current line
-(defun duplicate-line (&optional counts)
-  "Duplicates current line"
-  (interactive "P")
-  (mark-lines-next-line nil)
-  (let ((line (buffer-substring (region-beginning) (region-end))))
-    (deactivate-mark)
-    (move-end-of-line nil)
-    (dotimes (n (or 1 counts))
-      (insert line)
-      (previous-line))))
+;; duplicate current line
+(defun duplicate-current-line (&optional n)
+  "duplicate current line, make more than 1 copy given a numeric argument"
+  (interactive "p")
+  (save-excursion
+    (let ((nb (or n 1))
+          (current-line (thing-at-point 'line)))
+      ;; when on last line, insert a newline first
+      (when (or (= 1 (forward-line 1)) (eq (point) (point-max)))
+        (insert "\n"))
 
-(global-set-key (kbd "C-d") 'duplicate-line)
+      ;; now insert as many time as requested
+      (while (> n 0)
+        (insert current-line)
+        (decf n)))))
+
+(global-set-key (kbd "C-d") 'duplicate-current-line)

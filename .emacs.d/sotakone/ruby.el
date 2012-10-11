@@ -8,6 +8,7 @@
 
      (add-hook 'ruby-mode-hook
                (lambda ()
+                 (add-hook 'before-save-hook 'whitespace-cleanup)
                  (ruby-electric-mode t)
                  ;; (define-key ruby-mode-map (kbd "C-j") 'newline)
                  (flymake-ruby-load)
