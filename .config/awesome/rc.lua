@@ -510,8 +510,8 @@ client.add_signal("manage", function (c, startup)
     end
 end)
 
-client.add_signal("focus", function(c) c.border_color = "#FF0000" end)
-client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+-- client.add_signal("focus", function(c) c.border_color = "#FF0000" end)
+-- client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- awesome.font_set("Profont 5")
 
