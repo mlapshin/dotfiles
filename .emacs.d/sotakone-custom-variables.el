@@ -32,7 +32,7 @@
  '(ecb-options-version "2.32")
  '(enable-local-variables nil)
  '(espresso-indent-level 2)
- '(etags-table-alist (quote (("/home/w/medapp" . "/home/w/medapp/TAGS"))))
+ '(etags-table-alist (quote (("/home/w/medapp/" . "/home/w/medapp/TAGS"))))
  '(global-auto-complete-mode t)
  '(global-font-lock-mode t)
  '(global-hl-line-mode t)
