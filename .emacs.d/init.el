@@ -3,7 +3,6 @@
 (add-to-list 'package-archives '("gnu" .       "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'load-path "~/.emacs.d/vendor")
-(add-to-list 'load-path "~/.emacs.d/vendor/auto-complete/")
 
 (require 'hippie-exp)
 
@@ -13,11 +12,11 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-package-load-list '(rainbow-mode auto-complete
+(defvar my-package-load-list '(rainbow-mode
                                ido-yes-or-no maxframe color-theme inf-ruby ruby-mode ruby-electric rvm
                                flymake-ruby hl-line+ dired-single dired-details
                                coffee-mode haml-mode magit markdown-mode sass-mode
-                               yaml-mode yasnippet
+                               yaml-mode fuzzy popup etags-table
                                starter-kit-ruby starter-kit rinari wrap-region)
   "A list of packages to ensure are installed at launch.")
 

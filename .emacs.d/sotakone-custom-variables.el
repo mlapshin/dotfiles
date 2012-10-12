@@ -32,6 +32,7 @@
  '(ecb-options-version "2.32")
  '(enable-local-variables nil)
  '(espresso-indent-level 2)
+ '(etags-table-alist (quote (("/home/w/medapp/" . "/home/w/medapp/TAGS"))))
  '(global-auto-complete-mode t)
  '(global-font-lock-mode t)
  '(global-hl-line-mode t)
@@ -80,11 +81,12 @@
  '(truncate-lines t)
  '(whitespace-style (quote (tabs trailing space-before-tab space-after-tab tab-mark)))
  '(x-select-enable-clipboard t)
- '(yas/fallback-behavior (quote return-nil))
- '(yas/global-mode t nil (yasnippet))
- '(yas/prompt-functions (quote (yas/dropdown-prompt yas/completing-prompt yas/ido-prompt yas/no-prompt)))
- '(yas/root-directory "/home/sotakone/.emacs.d/snippets/" nil (yasnippet))
- '(yas/trigger-key ""))
+ '(yas-fallback-behavior (quote return-nil))
+ '(yas-global-mode t nil (yasnippet))
+ '(yas-prompt-functions (quote (yas/dropdown-prompt yas/completing-prompt yas/ido-prompt yas/no-prompt)))
+ '(yas-snippet-dirs "/home/sotakone/.emacs.d/snippets/text-mode/" nil (yasnippet))
+ '(yas-trigger-key "")
+ '(yas-use-menu (quote full)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
