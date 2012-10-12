@@ -7,9 +7,9 @@
 
 source ~/dotfiles/git-prompt.sh
 
-if [ -f ~/.rvm/script/rvm ]; then
-  source ~/.rvm/scripts/rvm
-  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+if [ -f "$HOME/.rvm/scripts/rvm" ]; then
+  source "$HOME/.rvm/scripts/rvm"
+  PATH=$PATH:$HOME/.rvm/bin
 fi
 
 if [ -f /etc/bash_completion ]; then
