@@ -7,7 +7,7 @@ fi
 syndaemon -k -i 1 -d &
 urxvtd &
 
-if [ "$HOSTNAME" -eq "rusty" ]; then
+if [ $HOSTNAME = "rusty" ]; then
   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
   nm-applet --sm-disable &
   thunar --daemon &
