@@ -4,7 +4,6 @@
 (require 'yasnippet)
 (require 'auto-complete)
 (require 'auto-complete-config)
-(require 'auto-complete-etags)
 
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete/dict")
 
@@ -36,7 +35,9 @@ nothing to expand or autocomplete, just indent current line like regular TAB."
 
 (defvar ac-source-etags
   '((candidates . (lambda ()
-                    (all-completions ac-target (tags-completion-table))))
+                    (if tags-table-list
+                        (all-completions ac-target (tags-completion-table))
+                      )))
     (candidate-face . ac-etags-candidate-face)
     (selection-face . ac-etags-selection-face)
     (requires . 3))
