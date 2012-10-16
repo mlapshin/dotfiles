@@ -29,7 +29,7 @@
                  (electric-layout-mode t)
 
                  (ruby-block-mode t)
-                 (ruby-block-highlight-toggle t)
+                 (ruby-block-highlight-toggle)
 
                  (add-hook 'before-save-hook 'whitespace-cleanup)
 
