@@ -38,7 +38,7 @@ nothing to expand or autocomplete, just indent current line like regular TAB."
                     (if tags-table-list
                         (all-completions ac-target (tags-completion-table))
                       nil)))
->>>>>>> 3ea299e462ffa08c5ad9950ecbaa6dfc851ef6d2
+
     (candidate-face . ac-etags-candidate-face)
     (selection-face . ac-etags-selection-face)
     (symbol . "t")
