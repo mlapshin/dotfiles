@@ -4,15 +4,16 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ac-auto-show-menu nil)
- '(ac-auto-start nil)
+ '(ac-auto-start 2)
+ '(ac-delay 0.3)
  '(ac-disable-faces (quote (font-lock-comment-face font-lock-doc-face)))
  '(ac-expand-on-auto-complete nil)
  '(ac-ignore-case nil)
- '(ac-menu-height 10)
+ '(ac-menu-height 30)
  '(ac-modes (quote (lua-mode haml-mode emacs-lisp-mode lisp-interaction-mode c-mode cc-mode c++-mode clojure-mode java-mode perl-mode cperl-mode python-mode ruby-mode ecmascript-mode espresso-mode php-mode css-mode makefile-mode sh-mode fortran-mode f90-mode ada-mode xml-mode sgml-mode)))
  '(ac-show-menu-immediately-on-auto-complete t)
  '(ac-stop-words (quote ("begin" "if" "else" "end" "do")))
- '(ac-trigger-key nil)
+ '(ac-trigger-key "<tab>")
  '(ac-use-menu-map t)
  '(auto-save-default nil)
  '(blink-cursor-mode nil)
@@ -86,11 +87,15 @@
  '(yas-prompt-functions (quote (yas/dropdown-prompt yas/completing-prompt yas/ido-prompt yas/no-prompt)))
  '(yas-snippet-dirs "/home/sotakone/.emacs.d/snippets/text-mode/" nil (yasnippet))
  '(yas-trigger-key "")
- '(yas-use-menu (quote full)))
+ '(yas-use-menu (quote full))
+
+ )
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ac-etags-candidate-face ((t (:background "light gray" :foreground "black" :weight bold))))
+ '(ac-etags-selection-face ((t (:background "dark magenta" :foreground "white" :weight bold))))
  '(hl-line ((t (:background "#262626")))))

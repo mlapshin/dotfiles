@@ -16,7 +16,7 @@
                                ido-yes-or-no maxframe color-theme inf-ruby ruby-mode ruby-electric rvm
                                flymake-ruby hl-line+ dired-single dired-details
                                coffee-mode haml-mode magit markdown-mode sass-mode
-                               yaml-mode fuzzy popup etags-table
+                               yaml-mode fuzzy popup
                                starter-kit-ruby starter-kit rinari wrap-region)
   "A list of packages to ensure are installed at launch.")
 
@@ -30,3 +30,4 @@
 
 (setq custom-file "~/.emacs.d/sotakone-custom-variables.el")
 (load custom-file)
+(put 'downcase-region 'disabled nil)

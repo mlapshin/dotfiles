@@ -11,9 +11,9 @@
 (add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
 
 ;; JK keys in AC menu
-(define-key ac-menu-map (kbd "M-k") 'ac-previous)
-(define-key ac-menu-map (kbd "M-j") 'ac-next)
-(define-key ac-menu-map (kbd "<tab>") 'ac-expand)
+(define-key ac-completing-map (kbd "M-k") 'ac-previous)
+(define-key ac-completing-map (kbd "M-j") 'ac-next)
+(define-key ac-completing-map (kbd "<tab>") 'ac-expand)
 
 (defun indent-or-autocomplete ()
   "Tries to display autocomplete menu. If we have
@@ -23,7 +23,7 @@ nothing to expand or autocomplete, just indent current line like regular TAB."
   (if (eql ac-triggered nil)
       (indent-for-tab-command)))
 
-(define-key ac-mode-map (kbd "<tab>") 'indent-or-autocomplete)
+;; (define-key ac-mode-map (kbd "<tab>") 'indent-or-autocomplete)
 (define-key ac-mode-map (kbd "C-<tab>") 'indent-for-tab-command)
 
 (defface ac-etags-candidate-face
@@ -34,13 +34,15 @@ nothing to expand or autocomplete, just indent current line like regular TAB."
   '((t (:background "deep sky blue" :foreground "white")))
   "Face for the etags selected candidate.")
 
-(defvar ac-source-etags
+(ac-define-source etags
   '((candidates . (lambda ()
-                    (all-completions ac-target (tags-completion-table))))
+                    (if tags-table-list
+                        (all-completions ac-target (tags-completion-table))
+                      nil)))
     (candidate-face . ac-etags-candidate-face)
     (selection-face . ac-etags-selection-face)
-    (requires . 3))
-  "Source for etags.")
+    (symbol . "t")
+    (requires . 3)))
 
 (defun ac-common-setup ()
   (add-to-list 'ac-sources 'ac-source-yasnippet)

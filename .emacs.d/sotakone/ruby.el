@@ -1,5 +1,7 @@
 (defun esk-run-coding-hook ())
 
+(add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
+
 (eval-after-load 'ruby-mode
   '(progn
      (rvm-use-default)
