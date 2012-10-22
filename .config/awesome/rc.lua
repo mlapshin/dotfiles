@@ -23,7 +23,7 @@ hostname = hn:read()
 hn:close()
 
 if hostname == 'rusty' then
-   awesome.font = "DejaVu Sans 7"
+   awesome.font = "DejaVu Sans 8"
 else
    awesome.font = "DejaVu Sans 9"
 end
