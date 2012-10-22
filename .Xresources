@@ -52,4 +52,4 @@ Xft.rgba: grb
 Xft.autohint: 1
 Xft.lcdfilter: lcddefault
 
-Emacs.font: Droid Sans Mono-10
+Emacs.font: DejaVu Sans Mono-11

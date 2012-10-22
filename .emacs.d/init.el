@@ -16,7 +16,7 @@
                                ido-yes-or-no maxframe color-theme inf-ruby ruby-mode rvm
                                flymake-ruby hl-line+ dired-single dired-details
                                coffee-mode haml-mode magit markdown-mode sass-mode
-                               yaml-mode fuzzy popup etags-table ruby-end ruby-block rspec-mode ruby-tools
+                               yaml-mode fuzzy popup ruby-end ruby-block rspec-mode ruby-tools
                                starter-kit-ruby starter-kit rinari wrap-region)
   "A list of packages to ensure are installed at launch.")
 
