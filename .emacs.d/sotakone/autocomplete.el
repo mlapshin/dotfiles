@@ -10,9 +10,9 @@
 (add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
 
 ;; JK keys in AC menu
-(define-key ac-completing-map (kbd "M-k") 'ac-previous)
-(define-key ac-completing-map (kbd "M-j") 'ac-next)
-(define-key ac-completing-map (kbd "<tab>") 'ac-expand)
+(define-key ac-menu-map (kbd "M-k") 'ac-previous)
+(define-key ac-menu-map (kbd "M-j") 'ac-next)
+(define-key ac-menu-map (kbd "<tab>") 'ac-expand)
 
 (defun indent-or-autocomplete ()
   "Tries to display autocomplete menu. If we have

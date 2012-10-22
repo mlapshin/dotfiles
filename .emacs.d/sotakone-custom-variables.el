@@ -87,9 +87,7 @@
  '(yas-prompt-functions (quote (yas/dropdown-prompt yas/completing-prompt yas/ido-prompt yas/no-prompt)))
  '(yas-snippet-dirs "/home/sotakone/.emacs.d/snippets/text-mode/" nil (yasnippet))
  '(yas-trigger-key "")
- '(yas-use-menu (quote full))
-
- )
+ '(yas-use-menu (quote full)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
