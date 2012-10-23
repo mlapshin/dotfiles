@@ -45,3 +45,5 @@
   f = fetch
   r = reset
   p = push
+[core]
+	editor = emacsclient -t
