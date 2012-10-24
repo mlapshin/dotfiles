@@ -17,3 +17,4 @@ ln -sfvT /home/sotakone/dotfiles/.bashrc /home/sotakone/.bashrc
 ln -sfvT /home/sotakone/dotfiles/.config/awesome /home/sotakone/.config/awesome
 
 ln -sfvT /home/sotakone/dotfiles/.urxvt /home/sotakone/.urxvt
+ln -sfvT /home/sotakone/dotfiles/.bash_profile /home/sotakone/.bash_profile
