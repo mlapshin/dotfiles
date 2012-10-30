@@ -15,8 +15,7 @@
 
 (global-unset-key (kbd "C-x C-z"))
 
-(global-set-key (kbd "<f11>") (lambda ()
-                              (linum-mode)))
+(global-set-key (kbd "<f11>") 'linum-mode)
 
 
 (defvar window-maximized nil
