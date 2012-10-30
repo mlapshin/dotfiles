@@ -24,6 +24,7 @@ alias ls='ls --color=auto'
 alias g='git'
 alias gs='git status'
 alias e='emacsclient -t'
+alias urxvtemacs='urxvt -name URxvt-emacs'
 
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
     || complete -o default -o nospace -F _git g

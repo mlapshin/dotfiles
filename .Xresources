@@ -44,6 +44,13 @@ URxvt.keysym.M-u:       perl:url-select:select_next
 URxvt.keysym.M-Escape:  perl:keyboard-select:activate
 URxvt.keysym.M-s:       perl:keyboard-select:search
 
+URxvt-emacs.keysym.A-w: builtin:
+URxvt-emacs.keysym.C-y: builtin:
+URxvt-emacs.keysym.C-A-y: builtin:
+URxvt-emacs.keysym.M-u: builtin:
+URxvt-emacs.keysym.M-Escape: builtin:
+URxvt-emacs.keysym.M-s: builtin:
+
 Xft.dpi: 96
 Xft.antialias: true
 Xft.hinting: true
