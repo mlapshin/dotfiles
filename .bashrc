@@ -24,7 +24,6 @@ alias ls='ls --color=auto'
 alias g='git'
 alias gs='git status'
 alias e='emacsclient -t'
-alias urxvtemacs='urxvt -name URxvt-emacs'
 alias tmx='tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME'
 
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \

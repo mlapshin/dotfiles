@@ -20,3 +20,5 @@ ln -sfvT /home/sotakone/dotfiles/.urxvt /home/sotakone/.urxvt
 ln -sfvT /home/sotakone/dotfiles/.bash_profile /home/sotakone/.bash_profile
 
 ln -sfvT /home/sotakone/dotfiles/.tmux.conf /home/sotakone/.tmux.conf
+
+ln -sfvT /home/sotakone/dotfiles/bin/urxvt-emacs /home/sotakone/bin/urxvt-emacs
