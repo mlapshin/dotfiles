@@ -1,20 +1,3 @@
-(eval-after-load "paredit"
-  '(progn
-     (define-key paredit-mode-map (kbd "M-J") nil)))
-
-(eval-after-load "ibuffer"
-  '(progn
-     (define-key ibuffer-mode-map (kbd "M-j") nil)))
-
-(eval-after-load "cc"
-  '(progn
-     (define-key c-mode-map    "\e\C-h" nil)
-     (define-key c-mode-map    "\e\C-j" nil)
-     (define-key c-mode-map    "\M-j"   nil)
-     (define-key c++-mode-map  "\e\C-h" nil)
-     (define-key c++-mode-map  "\e\C-j" nil)
-     (define-key c++-mode-map  "\M-j"   nil)))
-
 (defun smart-beginning-of-line ()
   (interactive)
 
@@ -22,7 +5,24 @@
     (beginning-of-line-text)
     (message "Saved point %s, current point %s" saved-point (point))
     (if (= saved-point (point))
-       (beginning-of-line))))
+        (beginning-of-line))))
+
+(defun stk-unset-hjkl-keys ()
+  "Unsets HJKL movement keys in current mode"
+  (define-key (current-local-map) (kbd "M-h") nil)
+  (define-key (current-local-map) (kbd "M-l") nil)
+  (define-key (current-local-map) (kbd "M-k") nil)
+  (define-key (current-local-map) (kbd "M-j") nil)
+
+  (define-key (current-local-map) (kbd "M-J") nil)
+  (define-key (current-local-map) (kbd "M-K") nil)
+  (define-key (current-local-map) (kbd "M-H") nil)
+  (define-key (current-local-map) (kbd "M-L") nil)
+
+  (define-key (current-local-map) (kbd "C-M-h") nil)
+  (define-key (current-local-map) (kbd "C-M-l") nil)
+  (define-key (current-local-map) (kbd "C-M-k") nil)
+  (define-key (current-local-map) (kbd "C-M-j") nil))
 
 (add-hook 'after-init-hook
           (lambda ()
@@ -53,3 +53,10 @@
             (global-set-key (kbd "C-M-k") 'windmove-up) ; move to upper window
             (global-set-key (kbd "C-M-j") 'windmove-down) ; move to downer window
             ))
+
+(add-hook 'ruby-mode-hook 'stk-unset-hjkl-keys)
+(add-hook 'c-mode-hook 'stk-unset-hjkl-keys)
+(add-hook 'c++-mode-hook 'stk-unset-hjkl-keys)
+(add-hook 'paredit-mode-hook 'stk-unset-hjkl-keys)
+(add-hook 'ibuffer-mode-hook 'stk-unset-hjkl-keys)
+(add-hook 'magit-mode-hook 'stk-unset-hjkl-keys)

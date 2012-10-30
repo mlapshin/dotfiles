@@ -15,6 +15,9 @@
 
 (global-unset-key (kbd "C-x C-z"))
 
+(global-set-key (kbd "<f11>") 'linum-mode)
+
+
 (defvar window-maximized nil
   "When t, window is maximized and next call to maximize-or-balance-window
 function will balance window instead of maximizing it")

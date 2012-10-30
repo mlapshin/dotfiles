@@ -2,6 +2,16 @@
 
 (add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
 
+(defun senny-ruby-open-spec-other-buffer ()
+  (interactive)
+  (when (featurep 'rspec-mode)
+    (let ((source-buffer (current-buffer))
+          (other-buffer (progn
+                          (rspec-toggle-spec-and-target)
+                          (current-buffer))))
+      (switch-to-buffer source-buffer)
+      (pop-to-buffer other-buffer))))
+
 (eval-after-load 'ruby-mode
   '(progn
      (require 'ruby-end)
@@ -30,9 +40,5 @@
                  (paredit-mode 0)
                  (flymake-mode t)
                  (wrap-region-mode t)
-                 (define-key ruby-mode-map (kbd "C-M-h") 'windmove-left)
                  (define-key ruby-mode-map (kbd "C-j") 'newline)
-                 (define-key ruby-mode-map "\e\C-a" nil)
-                 (define-key ruby-mode-map "\e\C-h" nil)
-                 (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)
-                 (define-key ruby-mode-map (kbd "C-M-h") nil)))))
+                 (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)))))
