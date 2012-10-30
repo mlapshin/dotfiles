@@ -18,3 +18,5 @@ ln -sfvT /home/sotakone/dotfiles/.config/awesome /home/sotakone/.config/awesome
 
 ln -sfvT /home/sotakone/dotfiles/.urxvt /home/sotakone/.urxvt
 ln -sfvT /home/sotakone/dotfiles/.bash_profile /home/sotakone/.bash_profile
+
+ln -sfvT /home/sotakone/dotfiles/.tmux.conf /home/sotakone/.tmux.conf

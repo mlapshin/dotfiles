@@ -30,4 +30,6 @@
 
 (setq custom-file "~/.emacs.d/sotakone-custom-variables.el")
 (load custom-file)
+
 (put 'downcase-region 'disabled nil)
+(server-start)
