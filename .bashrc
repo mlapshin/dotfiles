@@ -5,7 +5,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export EDITOR="emacsclient -t"
+
 source ~/dotfiles/git-prompt.sh
+source ~/dotfiles/knife-complete.sh
 
 if [ -f "$HOME/.rvm/scripts/rvm" ]; then
   source "$HOME/.rvm/scripts/rvm"
