@@ -10,5 +10,3 @@ if [ $HOSTNAME = "rusty" ]; then
     eval "$(rbenv init -)"
     eval $(ssh-agent)
 fi
-
-export EDITOR="emacsclient -t"
