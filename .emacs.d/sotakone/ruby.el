@@ -42,3 +42,8 @@
                  (wrap-region-mode t)
                  (define-key ruby-mode-map (kbd "C-j") 'newline)
                  (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)))))
+
+(add-hook 'haml-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (define-key haml-mode-map "\C-m" 'newline-and-indent)))
