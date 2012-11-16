@@ -1,6 +1,9 @@
+(require 'treetop)
+
 (defun esk-run-coding-hook ())
 
 (add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.treetop$" . treetop-mode))
 
 (defun senny-ruby-open-spec-other-buffer ()
   (interactive)
@@ -22,6 +25,9 @@
 
      (remove-hook 'ruby-mode-hook 'esk-paredit-nonlisp)
 
+     (add-hook 'rspec-mode-hook (lambda ()
+                                  (flymake-mode f)))
+
      (add-hook 'ruby-mode-hook
                (lambda ()
                  (ruby-tools-mode t)
@@ -41,4 +47,5 @@
                  (flymake-mode t)
                  (wrap-region-mode t)
                  (define-key ruby-mode-map (kbd "C-j") 'newline)
-                 (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)))))
+                 (define-key ruby-mode-map (kbd "C-c , l") 'rspec-verify-single)
+                 ))))
