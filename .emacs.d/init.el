@@ -1,7 +1,7 @@
 (require 'package)
 (add-to-list 'package-archives '("elpa" .      "http://tromey.com/elpa/"))
 (add-to-list 'package-archives '("gnu" .       "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
 (require 'hippie-exp)
@@ -15,7 +15,7 @@
 (defvar my-package-load-list '(rainbow-mode
                                ido-yes-or-no maxframe color-theme inf-ruby ruby-mode rvm
                                flymake-ruby hl-line+ dired-single dired-details
-                               coffee-mode haml-mode magit markdown-mode sass-mode
+                               haml-mode magit markdown-mode sass-mode
                                yaml-mode fuzzy popup ruby-end ruby-block rspec-mode ruby-tools
                                starter-kit-ruby starter-kit rinari wrap-region)
   "A list of packages to ensure are installed at launch.")
