@@ -20,13 +20,11 @@
      (require 'ruby-end)
      (require 'ruby-block)
      (require 'ruby-tools)
+     (require 'rspec-mode)
 
      (rvm-use-default)
 
      (remove-hook 'ruby-mode-hook 'esk-paredit-nonlisp)
-
-     (add-hook 'rspec-mode-hook (lambda ()
-                                  (flymake-mode f)))
 
      (add-hook 'ruby-mode-hook
                (lambda ()
@@ -46,7 +44,7 @@
                  (paredit-mode 0)
                  (flymake-mode t)
                  (wrap-region-mode t)
-                 (define-key ruby-mode-map (kbd "C-j") 'newline)
+                 (local-set-key (kbd "C-j") 'newline)
                  (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)))))
 
 (add-hook 'haml-mode-hook

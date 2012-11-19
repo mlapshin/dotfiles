@@ -32,3 +32,5 @@ function will balance window instead of maximizing it")
   (setf window-maximized (not window-maximized)))
 
 (global-set-key (kbd "<f12>") 'maximize-or-balance-window)
+
+(global-unset-key (kbd "C-x C-c"))
