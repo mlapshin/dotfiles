@@ -15,6 +15,7 @@
  '(ac-stop-words (quote ("begin" "if" "else" "end" "do")))
  '(ac-trigger-key "<tab>")
  '(ac-use-menu-map t)
+ '(auto-indent-next-pair-timer-geo-mean (quote ((default 0.0005 0))))
  '(auto-save-default nil)
  '(blink-cursor-mode nil)
  '(browse-url-browser-function (quote browse-url-generic))
