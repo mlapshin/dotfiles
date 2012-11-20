@@ -12,7 +12,10 @@
 ;; JK keys in AC menu
 (define-key ac-menu-map (kbd "M-k") 'ac-previous)
 (define-key ac-menu-map (kbd "M-j") 'ac-next)
+(define-key ac-menu-map (kbd "C-s") 'ac-isearch)
 (define-key ac-menu-map (kbd "<tab>") 'ac-expand)
+
+(global-set-key (kbd "M-/") 'auto-complete)
 
 (defun indent-or-autocomplete ()
   "Tries to display autocomplete menu. If we have
