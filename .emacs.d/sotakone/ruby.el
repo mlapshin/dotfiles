@@ -30,25 +30,16 @@
                (lambda ()
                  (ruby-tools-mode t)
 
-                 (electric-pair-mode t)
-                 (electric-indent-mode t)
-                 (electric-layout-mode t)
-
                  (ruby-block-mode t)
                  (ruby-block-highlight-toggle)
 
                  (add-hook 'before-save-hook 'whitespace-cleanup)
 
-                 ;; (define-key ruby-mode-map (kbd "C-j") 'newline)
                  (flymake-ruby-load)
                  (paredit-mode 0)
                  (flymake-mode t)
                  (wrap-region-mode t)
-                 (local-set-key (kbd "C-j") 'newline)
+                 (subword-mode t)
+                 (define-key ruby-mode-map (kbd "C-j") 'newline)
                  (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)))))
-
-(add-hook 'haml-mode-hook
-          (lambda ()
-            (setq indent-tabs-mode nil)
-            (define-key haml-mode-map "\C-m" 'newline-and-indent)))
 
