@@ -26,6 +26,9 @@
 
      (remove-hook 'ruby-mode-hook 'esk-paredit-nonlisp)
 
+     (add-hook 'rspec-mode-hook (lambda ()
+                                  (flymake-mode -1)))
+
      (add-hook 'ruby-mode-hook
                (lambda ()
                  (ruby-tools-mode t)
