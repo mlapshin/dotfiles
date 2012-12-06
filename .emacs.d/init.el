@@ -15,7 +15,7 @@
 (defvar my-package-load-list '(rainbow-mode
                                ido-yes-or-no maxframe color-theme inf-ruby ruby-mode rvm
                                flymake-ruby hl-line+ dired-single dired-details
-                               haml-mode magit markdown-mode sass-mode
+                               magit markdown-mode sass-mode
                                yaml-mode fuzzy popup ruby-end ruby-block rspec-mode ruby-tools
                                starter-kit-ruby starter-kit rinari wrap-region
                                auto-indent-mode)
@@ -32,5 +32,7 @@
 (setq custom-file "~/.emacs.d/sotakone-custom-variables.el")
 (load custom-file)
 
-(put 'downcase-region 'disabled nil)
 (server-start)
+
+(put 'downcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)

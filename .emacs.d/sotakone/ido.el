@@ -7,3 +7,5 @@
   (define-key ido-completion-map (kbd "M-h") 'ido-prev-match)
   (define-key ido-completion-map (kbd "M-j") 'ido-next-match)
   (define-key ido-completion-map (kbd "M-k") 'ido-prev-match))
+
+(global-set-key (kbd "C-x C-M-f") 'find-file-in-project)

@@ -32,7 +32,7 @@
  '(delete-selection-mode t)
  '(dired-single-magic-buffer-name "*dired-single*")
  '(ecb-options-version "2.32")
- '(enable-local-variables nil)
+ '(enable-local-variables :all)
  '(espresso-indent-level 2)
  '(etags-table-alist (quote (("/home/w/medapp/" . "/home/w/medapp/TAGS"))))
  '(global-auto-complete-mode t)
