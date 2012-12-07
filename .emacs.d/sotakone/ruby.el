@@ -22,6 +22,7 @@
      (require 'ruby-tools)
      (require 'rspec-mode)
 
+     (idle-highlight-mode t)
      (rvm-use-default)
 
      (remove-hook 'ruby-mode-hook 'esk-paredit-nonlisp)
