@@ -18,7 +18,7 @@
                                magit markdown-mode sass-mode
                                yaml-mode fuzzy popup ruby-end ruby-block rspec-mode ruby-tools
                                starter-kit-ruby starter-kit rinari wrap-region
-                               auto-indent-mode)
+                               expand-region)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-package-load-list)

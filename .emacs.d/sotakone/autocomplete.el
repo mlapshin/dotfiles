@@ -6,28 +6,9 @@
 (require 'auto-complete-config)
 
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete/dict")
-
 (add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
 
-;; JK keys in AC menu
-(define-key ac-menu-map (kbd "M-k") 'ac-previous)
-(define-key ac-menu-map (kbd "M-j") 'ac-next)
-(define-key ac-menu-map (kbd "C-s") 'ac-isearch)
-(define-key ac-completing-map (kbd "<tab>") 'auto-complete)
-(define-key ac-menu-map [return] 'ac-expand)
-
 (global-set-key (kbd "M-/") 'auto-complete)
-
-(defun indent-or-autocomplete ()
-  "Tries to display autocomplete menu. If we have
-nothing to expand or autocomplete, just indent current line like regular TAB."
-  (interactive)
-  (auto-complete)
-  (if (eql ac-triggered nil)
-      (indent-for-tab-command)))
-
-;; (define-key ac-mode-map (kbd "<tab>") 'indent-or-autocomplete)
-(define-key ac-mode-map (kbd "C-<tab>") 'indent-for-tab-command)
 
 (defface ac-etags-candidate-face
   '((t (:background "gainsboro" :foreground "deep sky blue")))
@@ -47,6 +28,23 @@ nothing to expand or autocomplete, just indent current line like regular TAB."
     (selection-face . ac-etags-selection-face)
     (symbol . "t")
     (requires . 3)))
+
+(defun ac-expand-or-newline ()
+  (interactive)
+  (if ac-show-menu
+      (ac-expand)
+    (newline 1)))
+
+;; JK keys in AC menu
+(define-key ac-completing-map [return] 'ac-expand-or-newline)
+(define-key ac-menu-map (kbd "M-k") 'ac-previous)
+(define-key ac-menu-map (kbd "M-j") 'ac-next)
+(define-key ac-menu-map (kbd "C-s") 'ac-isearch)
+(define-key ac-menu-map [return] 'ac-expand)
+
+(define-key ac-completing-map (kbd "<tab>") 'auto-complete)
+
+(define-key ac-mode-map (kbd "C-<tab>") 'indent-for-tab-command)
 
 (defun ac-common-setup ()
   (add-to-list 'ac-sources 'ac-source-yasnippet)
