@@ -15,9 +15,10 @@
 (defvar my-package-load-list '(rainbow-mode
                                ido-yes-or-no maxframe color-theme inf-ruby ruby-mode rvm
                                flymake-ruby hl-line+ dired-single dired-details
-                               magit markdown-mode sass-mode
+                               magit markdown-mode sass-mode  ace-jump-mode wrap-region
                                yaml-mode fuzzy popup ruby-end ruby-block rspec-mode ruby-tools
-                               starter-kit-ruby starter-kit rinari wrap-region ace-jump-mode)
+                               rinari
+                               starter-kit-ruby starter-kit)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-package-load-list)

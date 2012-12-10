@@ -51,6 +51,7 @@
  '(ido-everywhere t)
  '(ido-show-dot-for-dired t)
  '(ido-use-filename-at-point nil)
+ '(iedit-toggle-key-default nil)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(kill-whole-line nil)
