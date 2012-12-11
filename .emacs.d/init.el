@@ -12,7 +12,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-package-load-list '(rainbow-mode
+(defvar my-package-load-list '(rainbow-mode smooth-scrolling
                                ido-yes-or-no maxframe color-theme inf-ruby ruby-mode rvm
                                flymake-ruby hl-line+ dired-single dired-details
                                magit markdown-mode sass-mode  ace-jump-mode wrap-region
