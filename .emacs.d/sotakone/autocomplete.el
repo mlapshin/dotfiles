@@ -33,7 +33,8 @@
   (interactive)
   (if (and ac-menu (not (popup-hidden-p ac-menu)))
       (ac-expand)
-    (newline 1)))
+    (progn (ac-cleanup)
+           (newline-and-indent))))
 
 ;; JK keys in AC menu
 (define-key ac-completing-map [return] 'ac-complete-or-newline)

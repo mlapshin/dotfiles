@@ -16,4 +16,3 @@ fi
 # exec startxfce4
 # ...or the Window Manager of your choice
 exec ~/.xsession
-

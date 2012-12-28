@@ -1,3 +1,4 @@
 (require 'ace-jump-mode)
 
-(define-key global-map (kbd "C-0") 'ace-jump-mode)
+(global-set-key (kbd "C-z") 'ace-jump-mode)
+(global-set-key (kbd "C-M-z") 'ace-jump-char-mode)

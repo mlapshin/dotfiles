@@ -28,6 +28,7 @@ alias g='git'
 alias gs='git status'
 alias e='emacsclient -t'
 alias tmx='tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME'
+alias rdm='bundle exec rake databases:migrate & bundle exec rake databases:migrate RAILS_ENV=test'
 
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
     || complete -o default -o nospace -F _git g

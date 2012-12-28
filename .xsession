@@ -19,4 +19,4 @@ fi
 # dropbox start
 ~/.dropbox-dist/dropbox &
 
-exec awesome
+exec i3

@@ -7,6 +7,7 @@
  '(ac-auto-start 2)
  '(ac-delay 0.3)
  '(ac-disable-faces (quote (font-lock-comment-face font-lock-doc-face)))
+ '(ac-disable-inline t)
  '(ac-expand-on-auto-complete nil)
  '(ac-ignore-case nil)
  '(ac-menu-height 30)
