@@ -34,3 +34,5 @@ function will balance window instead of maximizing it")
 (global-set-key (kbd "<f12>") 'maximize-or-balance-window)
 
 (global-unset-key (kbd "C-x C-c"))
+(global-set-key (kbd "C-x C-z") (save-buffers-kill-terminal))
+

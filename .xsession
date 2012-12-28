@@ -19,4 +19,8 @@ fi
 # dropbox start
 ~/.dropbox-dist/dropbox &
 
-exec i3
+if [ $HOSTNAME = "rusty" ]; then
+    exec i3
+else
+    exec i3 --force-xinerama
+fi
