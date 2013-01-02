@@ -59,11 +59,11 @@ do
    function conky_statusbar_bat(bat)
       local short = split(conky_parse("${battery_short BAT1}"), " ")
       local bat_short = short[1]
+      local percents = short[2] or "100"
 
       if bat_short == "N" or bat_short == "U" or bat_short == "E" then
          return "{ \"full_text\":\" No BAT \", \"color\":\""..muted_color.."\" }"
       else
-         local percents = short[2]
          percents = percents:gsub("%%", "")
          percents = tonumber(percents)
 
