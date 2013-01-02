@@ -52,13 +52,16 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split g
+bindsym $mod+g split h
 
 # split in vertical orientation
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
+
+# lock screen on ctrl+mod+l
+bindsym $mod+Ctrl+l exec slock
 
 # change container layout (stacked, tabbed, default)
 bindsym $mod+s layout stacking

@@ -19,7 +19,7 @@ double_buffer no
 background no
 
 ## Update interval in seconds
-update_interval 2.0
+update_interval 1
 
 ## This is the number of times Conky will update before quitting.
 ## Set to zero to run forever.
