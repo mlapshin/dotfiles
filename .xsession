@@ -19,6 +19,11 @@ fi
 # dropbox start
 ~/.dropbox-dist/dropbox &
 
+# disable x screen blanking
+xset s blank
+xset s 0
+xset dpms 0
+
 if [ $HOSTNAME = "rusty" ]; then
     exec i3
 else
