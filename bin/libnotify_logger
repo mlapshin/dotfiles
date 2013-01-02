@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+# A simple ruby script which listens for libnotify messages
+# and logs them to specified file.
+
+require "rubygems"
+require "bundler/setup"
+require "gir_ffi"
+
+GirFFI.setup :Notify
+Notify.init("Hello world")
