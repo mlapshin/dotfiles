@@ -33,7 +33,7 @@ URxvt*letterSpace: -1
 
 URxvt*transparent: true
 URxvt*shading: 10
-URxvt*scrollstyle: plain
+URxvt*scrollBar: false
 
 URxvt.perl-lib: /home/sotakone/.urxvt/pm
 URxvt.perl-ext-common:  default,clipboard,url-select,keyboard-select

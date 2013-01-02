@@ -24,3 +24,6 @@ ln -sfvT /home/sotakone/dotfiles/.tmux.conf /home/sotakone/.tmux.conf
 ln -sfvT /home/sotakone/dotfiles/bin/urxvt-emacs /home/sotakone/bin/urxvt-emacs
 
 ln -sfvT /home/sotakone/dotfiles/.i3 /home/sotakone/.i3
+ln -sfvT /home/sotakone/dotfiles/bin/conky-i3bar /home/sotakone/bin/conky-i3bar
+
+ln -sfvT /home/sotakone/dotfiles/.conky /home/sotakone/.conky
