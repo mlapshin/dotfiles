@@ -199,5 +199,9 @@ workspace 8 output VGA1
 workspace 9 output VGA1
 workspace 10 output VGA1
 
+# The IPC interface allows programs like an external workspace bar
+# (i3-wsbar) or i3-msg (can be used to "remote-control" i3) to work.
+ipc-socket ~/.i3/ipc.sock
+
 exec_always xrandr --output VGA1 --auto --above LVDS1
 exec_always feh --bg-fill ~/Pictures/wallpaper.png
