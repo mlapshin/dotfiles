@@ -1,0 +1,54 @@
+override_utf8_locale yes
+background yes
+use_xft yes
+xftfont Droid Sans Mono:size=8
+update_interval 1.0
+total_run_times 0
+own_window no
+own_window_transparent yes
+own_window_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 250 100
+maximum_width 300
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+alignment bottom_right
+gap_x 20
+gap_y 30
+uppercase no
+cpu_avg_samples 2
+
+default_color cccccc
+default_shade_color 000000
+default_outline_color white
+
+color0 cccccc
+color1 FF9900
+
+TEXT
+System ${hr 2}
+
+Hostname: ${color1}$alignr $nodename${color0}
+Uptime: ${color1}$alignr $uptime${color0}
+Kernel: ${color1}$alignr $kernel${color0}
+
+/: $alignr${fs_used /}/${fs_size /} - ${fs_used_perc /}%
+${fs_bar 4,250 /}
+
+/home/: $alignr${fs_used /home}/${fs_size /home} - ${fs_used_perc /home}%
+${fs_bar 4,250 /home}
+
+Wireless ${hr 2}
+
+IP address: $alignr ${addr wlan0}
+ESSID: $alignr ${wireless_essid wlan0}
+Connection Quality: $alignr ${wireless_link_qual_perc wlan0}%
+
+Download (${totaldown wlan0} total) $alignr ${downspeed wlan0}
+${downspeedgraph wlan0}
+
+Upload (${totalup wlan0} total) $alignr ${upspeed wlan0}
+${upspeedgraph wlan0}
