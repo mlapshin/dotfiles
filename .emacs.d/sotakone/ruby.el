@@ -88,6 +88,5 @@
                  (subword-mode t)
                  (define-key ruby-mode-map (kbd "C-n C-d") 'narrow-to-ruby-def)
                  (define-key ruby-mode-map (kbd "C-j") 'newline)
-                 (define-key ruby-mode-map (kbd "C-M-i") 'imenu)
                  (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)))))
 
