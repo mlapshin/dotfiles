@@ -20,9 +20,9 @@ fi
 ~/.dropbox-dist/dropbox &
 
 # disable x screen blanking
-xset s blank
 xset s 0
-xset dpms 0
+xset s noblank
+xset -dpms
 
 if [ $HOSTNAME = "rusty" ]; then
     exec i3

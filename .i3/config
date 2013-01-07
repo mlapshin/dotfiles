@@ -204,4 +204,4 @@ workspace 10 output VGA1
 ipc-socket ~/.i3/ipc.sock
 
 exec_always xrandr --output VGA1 --auto --above LVDS1
-exec_always feh --bg-fill ~/Pictures/wallpaper.png
+exec_always feh --bg-fill ~/Dropbox/wallpaper.png

@@ -1,0 +1,13 @@
+# ~/.inputrc
+
+set meta-flag on
+set input-meta on
+set convert-meta on
+set output-meta on
+
+"\C-x\C-r": re-read-init-file
+
+"\C-h": echo "C-h" # backward-char
+"\M-l": forward-char
+"\M-H": backward-word
+"\M-L": forward-word

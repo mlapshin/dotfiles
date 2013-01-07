@@ -60,28 +60,28 @@ do
       local short = split(conky_parse("${battery_short BAT1}"), " ")
       local bat_short = short[1]
       local percents = short[2] or "100"
+      local text = ""
 
       if bat_short == "N" or bat_short == "U" or bat_short == "E" then
          return "{ \"full_text\":\" No BAT \", \"color\":\""..muted_color.."\" }"
       else
          percents = percents:gsub("%%", "")
          percents = tonumber(percents)
-
          local clr = ok_color
          local bat_time = ""
 
          if percents <= 20 then
             clr = critical_color
-         elseif percents <= 50 then
+         elseif percents <= 70 then
             clr = warning_color
-         end
-
-         if bat_short == "D" and clr == ok_color then
-            clr = warning_color
+         elseif percents <= 100 then
+            clr = ok_color
          end
 
          if bat_short == "D" or bat_short == "C" then
             bat_time = " ${battery_time BAT1}"
+         else
+            clr = muted_color
          end
 
          return "{ \"full_text\":\" BAT: "..percents.."\% "..bat_short..bat_time.." \", \"color\":\""..clr.."\"}"
@@ -119,7 +119,7 @@ do
    end
 
    function conky_statusbar_keyb()
-      local clr = muted_color
+      local clr = "\\#ffffff"
 
       return "{ \"full_text\":\" ${exec skb 1} \", \"color\":\""..clr.."\"}"
    end

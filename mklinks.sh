@@ -25,3 +25,5 @@ ln -sfvT /home/sotakone/dotfiles/bin /home/sotakone/bin
 
 ln -sfvT /home/sotakone/dotfiles/.i3 /home/sotakone/.i3
 ln -sfvT /home/sotakone/dotfiles/.conky /home/sotakone/.conky
+
+ln -sfvT /home/sotakone/dotfiles/.inputrc /home/sotakone/.inputrc
