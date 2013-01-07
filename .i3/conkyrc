@@ -63,7 +63,7 @@ cpu_avg_samples 2
 
 TEXT
 [
-{ "full_text":" ${execi 10 /home/sotakone/bin/weather.sh ASI\|RU\|RS073\|SAINT+PETERSBURG}°C ", "color":"\#999999" },
+{ "full_text":" ${execi 300 /home/sotakone/bin/weather.sh ASI\|RU\|RS073\|SAINT+PETERSBURG}°C ", "color":"\#999999" },
 ${lua_parse statusbar_cpu},
 ${lua_parse statusbar_mem},
 ${lua_parse statusbar_bat BAT1},
