@@ -29,15 +29,7 @@
     (symbol . "t")
     (requires . 3)))
 
-(defun ac-complete-or-newline ()
-  (interactive)
-  (if (and ac-menu (not (popup-hidden-p ac-menu)))
-      (ac-expand)
-    (progn (ac-cleanup)
-           (newline-and-indent))))
-
 ;; JK keys in AC menu
-(define-key ac-completing-map [return] 'ac-complete-or-newline)
 (define-key ac-menu-map (kbd "M-k") 'ac-previous)
 (define-key ac-menu-map (kbd "M-j") 'ac-next)
 (define-key ac-menu-map (kbd "C-s") 'ac-isearch)
