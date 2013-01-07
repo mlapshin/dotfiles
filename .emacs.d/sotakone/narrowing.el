@@ -1,12 +1,12 @@
 (global-unset-key (kbd "C-n"))
 
-(defun narrow-dwim ()
+(defun narrow-dwim (begin end)
   "If buffer is not narrowed, narrow it to region or defun. If narrowed, widen it."
-  (interactive)
+  (interactive "r")
   (if (and (eq (point-min) 1)
            (eq (- (point-max) 1) (buffer-size)))
       (if mark-active
-          (narrow-to-region)
+          (narrow-to-region begin end)
         (if (eq major-mode 'ruby-mode)
             (narrow-to-ruby-def)
           (narrow-to-defun)))
