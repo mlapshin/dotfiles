@@ -29,3 +29,4 @@ ln -sfvT /home/sotakone/dotfiles/.conky /home/sotakone/.conky
 
 ln -sfvT /home/sotakone/dotfiles/.inputrc /home/sotakone/.inputrc
 ln -sfvT /home/sotakone/dotfiles/.config/dunst /home/sotakone/.config/dunst
+ln -sfvT /home/sotakone/dotfiles/.config/fontconfig /home/sotakone/.config/fontconfig

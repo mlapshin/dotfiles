@@ -36,9 +36,9 @@
 (define-key ac-menu-map (kbd "C-s") 'ac-isearch)
 (define-key ac-menu-map [return] 'ac-complete)
 
-(define-key ac-completing-map (kbd "<tab>") 'ac-complete)
+;; (define-key ac-completing-map (kbd "<tab>") 'ac-complete)
 
-(define-key ac-mode-map (kbd "C-<tab>") 'indent-for-tab-command)
+;; (define-key ac-mode-map (kbd "C-<tab>") 'indent-for-tab-command)
 
 (defun ac-common-setup ()
   (add-to-list 'ac-sources 'ac-source-yasnippet)

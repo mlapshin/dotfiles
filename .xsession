@@ -25,8 +25,6 @@ xset s 0
 xset s noblank
 xset -dpms
 
-if [ $HOSTNAME = "rusty" ]; then
-    exec i3
-else
-    exec i3 --force-xinerama
-fi
+erb -T "-"  ~/.i3/config.erb > ~/.i3/config
+
+exec i3

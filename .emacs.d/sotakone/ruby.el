@@ -10,7 +10,6 @@
   (interactive)
 
   (save-excursion
-    (let (def-start-point)
       (condition-case nil
           (forward-char 3)
         (error nil))
@@ -20,10 +19,9 @@
         (word-search-backward "def"))
       (beginning-of-line)
       (set-mark (point))
-      (setq def-start-point (point))
       (er/ruby-end-of-block)
       (end-of-line)
-      (narrow-to-region def-start-point (point)))))
+      (narrow-to-region (mark) (point))))
 
 (defun senny-ruby-open-spec-other-buffer ()
   (interactive)

@@ -10,3 +10,5 @@
 
 ;; (add-hook 'css-mode-hook  (lambda () (rainbow-mode)))
 ;; (add-hook 'sass-mode-hook (lambda () (rainbow-mode)))
+
+(set-frame-font "DejaVu Sans Mono-10")
