@@ -5,6 +5,26 @@
 (add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.treetop$" . treetop-mode))
 
+(defun narrow-to-ruby-def ()
+  "Narrow buffer to the current Ruby function."
+  (interactive)
+
+  (save-excursion
+    (let (def-start-point)
+      (condition-case nil
+          (forward-char 3)
+        (error nil))
+
+      (word-search-backward "def")
+      (while (er--point-inside-string-p)
+        (word-search-backward "def"))
+      (beginning-of-line)
+      (set-mark (point))
+      (setq def-start-point (point))
+      (er/ruby-end-of-block)
+      (end-of-line)
+      (narrow-to-region def-start-point (point)))))
+
 (defun senny-ruby-open-spec-other-buffer ()
   (interactive)
   (when (featurep 'rspec-mode)
@@ -66,6 +86,7 @@
                  (flymake-mode t)
                  (wrap-region-mode t)
                  (subword-mode t)
+                 (define-key ruby-mode-map (kbd "C-n C-d") 'narrow-to-ruby-def)
                  (define-key ruby-mode-map (kbd "C-j") 'newline)
                  (define-key ruby-mode-map (kbd "C-M-i") 'imenu)
                  (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)))))

@@ -29,6 +29,7 @@
     (symbol . "t")
     (requires . 3)))
 
+
 ;; JK keys in AC menu
 (define-key ac-menu-map (kbd "M-k") 'ac-previous)
 (define-key ac-menu-map (kbd "M-j") 'ac-next)
