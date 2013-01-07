@@ -11,6 +11,7 @@ if [ $HOSTNAME = "rusty" ]; then
   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
   nm-applet --sm-disable &
   thunar --daemon &
+  dunst &
 else
   # medapp ws
   gnome-settings-daemon &
