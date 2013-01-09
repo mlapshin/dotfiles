@@ -90,13 +90,16 @@ be matched by a regexp in this list.")
 (defun haml-nested-regexp (re)
   "Create a regexp to match a block starting with RE.
 The line containing RE is matched, as well as all lines indented beneath it."
-  (concat "^\\([ \t]*\\)\\(" re "\\)\\([ \t]*\\(?:\n\\1 +[^\n]*\\)*\n?\\)$"))
+  (concat "^\\([ \t]*\\)\\(" re "\\)\\([ \t]*\\(?:\n\\(?:\\1 +[^\n]*\\)?\\)*\n?\\)$"))
 
 (defconst haml-font-lock-keywords
-  `((haml-highlight-ruby-tag 1 font-lock-preprocessor-face)
+  `((haml-highlight-interpolation         1 font-lock-variable-name-face prepend)
+    (haml-highlight-ruby-tag 1 font-lock-preprocessor-face)
     (haml-highlight-ruby-script 1 font-lock-preprocessor-face)
-    haml-highlight-filter
+    ;; TODO: distinguish between "/" comments, which can contain HAML
+    ;; output directives, and "-#", which are completely ignored
     haml-highlight-comment
+    haml-highlight-filter
     ("^!!!.*"                             0 font-lock-constant-face)
     ("\\s| *$"                            0 font-lock-string-face)))
 
@@ -108,7 +111,7 @@ The line containing RE is matched, as well as all lines indented beneath it."
   (when (re-search-forward haml-comment-re limit t)
     (let ((beg (match-beginning 0))
           (end (match-end 0)))
-      (put-text-property beg end 'font-lock-face 'font-lock-comment-face)
+      (put-text-property beg end 'face 'font-lock-comment-face)
       (goto-char end))))
 
 ;; Fontifying sub-regions for other languages
@@ -153,7 +156,7 @@ respectively."
 
 This requires that `css-mode' is available.
 `css-mode' is included with Emacs 23."
-  (if (boundp 'css-font-lock-keywords)
+  (when (boundp 'css-font-lock-keywords)
       (haml-fontify-region beg end
                            css-font-lock-keywords
                            css-mode-syntax-table
@@ -215,7 +218,7 @@ END.")
   (when (re-search-forward haml-filter-re limit t)
     ;; fontify the filter name
     (put-text-property (match-beginning 2) (1+ (match-end 2))
-                       'font-lock-face font-lock-preprocessor-face)
+                       'face font-lock-preprocessor-face)
     (let ((filter-name (substring (match-string 2) 1))
           (code-start (1+ (match-beginning 3)))
           (code-end (match-end 3)))
@@ -223,22 +226,31 @@ END.")
         (funcall (or (aget haml-fontify-filter-functions-alist filter-name)
                      #'(lambda (beg end)
                          (put-text-property beg end
-                                            'font-lock-face
+                                            'face
                                             'font-lock-string-face)))
                  code-start code-end))
       (goto-char (match-end 0)))))
 
 (defconst haml-possibly-multiline-code-re
-  "\\(\\(?:.*?[,{(\\[][ \t]*\n\\)*.*\\)"
+  "\\(\\(?:.*?,[ \t]*\n\\)*.*\\)"
   "Regexp to match trailing ruby code which may continue onto subsequent lines.")
+
+(defconst haml-ruby-script-re
+  (concat "^[ \t]*\\(-\\|[&!]?[=~]\\) " haml-possibly-multiline-code-re)
+  "Regexp to match -, = or ~ blocks and any continued code lines.")
 
 (defun haml-highlight-ruby-script (limit)
   "Highlight a Ruby script expression (-, =, or ~).
 LIMIT works as it does in `re-search-forward'."
-  (when (re-search-forward (concat "^[ \t]*\\(-\\|[&!]?[=~]\\) "
-                                   haml-possibly-multiline-code-re)
-                           limit t)
+  (when (re-search-forward haml-ruby-script-re limit t)
     (haml-fontify-region-as-ruby (match-beginning 2) (match-end 2))))
+
+(defun haml-move (re)
+  "Try matching and moving to the end of regular expression RE.
+Returns non-nil if the expression was sucessfully matched."
+  (when (looking-at re)
+    (goto-char (match-end 0))
+    t))
 
 (defun haml-highlight-ruby-tag (limit)
   "Highlight Ruby code within a Haml tag.
@@ -257,7 +269,7 @@ For example, this will highlight all of the following:
 
     ;; Highlight tag, classes, and ids
     (while (haml-move "\\([.#%]\\)[a-z0-9_:\\-]*")
-      (put-text-property (match-beginning 0) (match-end 0) 'font-lock-face
+      (put-text-property (match-beginning 0) (match-end 0) 'face
                          (case (char-after (match-beginning 1))
                            (?% font-lock-function-name-face)
                            (?# font-lock-keyword-face)
@@ -280,7 +292,7 @@ For example, this will highlight all of the following:
                        (lambda (type beg end)
                          (case type
                            (name (put-text-property beg end
-                                                    'font-lock-face
+                                                    'face
                                                     font-lock-constant-face))
                            (value (haml-fontify-region-as-ruby beg end)))))
                       (not (eobp)))
@@ -308,7 +320,7 @@ For example, this will highlight all of the following:
             (t (return-from loop))))))
 
     ;; Move past end chars
-    (when (looking-at "[<>&!]+") (goto-char (match-end 0)))
+    (haml-move "[<>&!]+")
     ;; Highlight script
     (if (looking-at (concat "\\([=~]\\) " haml-possibly-multiline-code-re))
         (haml-fontify-region-as-ruby (match-beginning 2) (match-end 2))
@@ -317,12 +329,19 @@ For example, this will highlight all of the following:
       (looking-at "\\(\\)"))
     t))
 
-(defun haml-move (re)
-  "Try matching and moving to the end of regular expression RE.
-Returns non-nil if the expression was sucessfully matched."
-  (when (looking-at re)
-    (goto-char (match-end 0))
-    t))
+(defun haml-highlight-interpolation (limit)
+  "Highlight Ruby interpolation (#{foo}).
+LIMIT works as it does in `re-search-forward'."
+  (when (re-search-forward "\\(#{\\)" limit t)
+    (save-match-data
+      (forward-char -1)
+      (let ((beg (point)))
+        (haml-limited-forward-sexp limit)
+        (haml-fontify-region-as-ruby (1+ beg) (point)))
+      (when (eq (char-before) ?\})
+        (put-text-property (1- (point)) (point)
+                           'face font-lock-variable-name-face))
+      t)))
 
 (defun haml-limited-forward-sexp (limit &optional arg)
   "Move forward using `forward-sexp' or to LIMIT, whichever comes first.
@@ -337,55 +356,108 @@ With ARG, do it that many times."
          (signal 'scan-error (cdr err)))
        (goto-char limit)))))
 
-(defun* haml-extend-region-filters-comments ()
-  "Extend the font-lock region to encompass filters and comments."
+(defun haml-find-containing-block (re)
+  "If point is inside a block matching RE, return (start . end) for the block."
+  (save-excursion
+    (let ((pos (point))
+          start end)
+      (beginning-of-line)
+      (when (and
+             (or (looking-at re)
+                 (when (re-search-backward re nil t)
+                   (looking-at re)))
+             (< pos (match-end 0)))
+        (setq start (match-beginning 0)
+              end (match-end 0)))
+      (when start
+        (cons start end)))))
+
+(defun haml-maybe-extend-region (extender)
+  "Maybe extend the font lock region using EXTENDER.
+With point at the beginning of the font lock region, EXTENDER is called.
+If it returns a (START . END) pair, those positions are used to possibly
+extend the font lock region."
   (let ((old-beg font-lock-beg)
         (old-end font-lock-end))
     (save-excursion
       (goto-char font-lock-beg)
-      (beginning-of-line)
-      (unless (or (looking-at haml-filter-re)
-                  (looking-at haml-comment-re))
-        (return-from haml-extend-region-filters-comments))
-      (setq font-lock-beg (point))
-      (haml-forward-sexp)
-      (beginning-of-line)
-      (setq font-lock-end (max font-lock-end (point))))
+      (let ((new-bounds (funcall extender)))
+        (when new-bounds
+          (setq font-lock-beg (min font-lock-beg (car new-bounds))
+                font-lock-end (max font-lock-end (cdr new-bounds))))))
     (or (/= old-beg font-lock-beg)
         (/= old-end font-lock-end))))
 
-(defun* haml-extend-region-multiline-hashes ()
+(defun haml-extend-region-nested-below ()
+  "Extend the font-lock region to any subsequent indented lines."
+  (haml-maybe-extend-region
+   (lambda ()
+     (beginning-of-line)
+     (when (looking-at (haml-nested-regexp "[^ \t].*"))
+       (cons (match-beginning 0) (match-end 0))))))
+
+(defun haml-extend-region-to-containing-block (re)
+  "Extend the font-lock region to the smallest containing block matching RE."
+  (haml-maybe-extend-region
+   (lambda ()
+     (haml-find-containing-block re))))
+
+(defun haml-extend-region-filter ()
+  "Extend the font-lock region to an enclosing filter."
+  (haml-extend-region-to-containing-block haml-filter-re))
+
+(defun haml-extend-region-comment ()
+  "Extend the font-lock region to an enclosing comment."
+  (haml-extend-region-to-containing-block haml-comment-re))
+
+(defun haml-extend-region-ruby-script ()
+  "Extend the font-lock region to encompass any current -/=/~ line."
+  (haml-extend-region-to-containing-block haml-ruby-script-re))
+
+(defun haml-extend-region-multiline-hashes ()
   "Extend the font-lock region to encompass multiline attribute hashes."
-  (let ((old-beg font-lock-beg)
-        (old-end font-lock-end))
-    (save-excursion
-      (goto-char font-lock-beg)
-      (let ((attr-props (haml-parse-multiline-attr-hash))
-            multiline-end)
-        (when attr-props
-          (setq font-lock-beg (cdr (assq 'point attr-props)))
+  (haml-maybe-extend-region
+   (lambda ()
+     (let ((attr-props (haml-parse-multiline-attr-hash))
+           multiline-end
+           start)
+       (when attr-props
+         (setq start (cdr (assq 'point attr-props)))
 
-          (end-of-line)
-          ;; Move through multiline attrs
-          (when (eq (char-before) ?,)
-            (save-excursion
-              (while (progn (end-of-line)
-                            (and (eq (char-before) ?,) (not (eobp))))
-                (forward-line))
+         (end-of-line)
+         ;; Move through multiline attrs
+         (when (eq (char-before) ?,)
+           (save-excursion
+             (while (progn (end-of-line)
+                           (and (eq (char-before) ?,) (not (eobp))))
+               (forward-line))
 
-              (forward-line -1)
-              (end-of-line)
-              (setq multiline-end (point))))
+             (forward-line -1)
+             (end-of-line)
+             (setq multiline-end (point))))
 
-          (goto-char (+ (cdr (assq 'point attr-props))
-                        (cdr (assq 'hash-indent attr-props))
-                        -1))
-          (haml-limited-forward-sexp
-           (or multiline-end
-               (save-excursion (end-of-line) (point))))
-          (setq font-lock-end (max font-lock-end (point))))))
-    (or (/= old-beg font-lock-beg)
-        (/= old-end font-lock-end))))
+         (goto-char (+ (cdr (assq 'point attr-props))
+                       (cdr (assq 'hash-indent attr-props))
+                       -1))
+         (haml-limited-forward-sexp
+          (or multiline-end
+              (save-excursion (end-of-line) (point))))
+         (cons start (point)))))))
+
+(defun haml-extend-region-contextual ()
+  "Extend the font lock region piecemeal.
+
+The result of calling this function repeatedly until it returns
+nil is that (FONT-LOCK-BEG . FONT-LOCK-END) will be the smallest
+possible region in which font-locking could be affected by
+changes in the initial region."
+  (or
+   (haml-extend-region-filter)
+   (haml-extend-region-comment)
+   (haml-extend-region-ruby-script)
+   (haml-extend-region-multiline-hashes)
+   (haml-extend-region-nested-below)
+   (font-lock-extend-region-multiline)))
 
 
 ;; Mode setup
@@ -419,8 +491,7 @@ With ARG, do it that many times."
 
 \\{haml-mode-map}"
   (set-syntax-table haml-mode-syntax-table)
-  (add-to-list 'font-lock-extend-region-functions 'haml-extend-region-filters-comments)
-  (add-to-list 'font-lock-extend-region-functions 'haml-extend-region-multiline-hashes)
+  (setq font-lock-extend-region-functions '(haml-extend-region-contextual))
   (set (make-local-variable 'jit-lock-contextually) t)
   (set (make-local-variable 'font-lock-multiline) t)
   (set (make-local-variable 'indent-line-function) 'haml-indent-line)
