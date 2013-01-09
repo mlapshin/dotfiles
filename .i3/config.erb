@@ -14,7 +14,7 @@ set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font xft:Droid Sans Mono 8
+font xft:Droid Sans Mono <%= $HOSTNAME == 'rusty' ? '8' : '9' %>
 # font xft:Terminus:size=9:style=Regular
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -173,7 +173,7 @@ for_window [class="URxvt"] border pixel 1;
 # finds out, if available)
 bar {
   status_command $HOME/bin/conky-i3bar
-  tray_output <%= $HOSTNAME == 'rusty' ? 'LVDS1' : 'VGA1' %>
+  tray_output <%= $HOSTNAME == 'rusty' ? 'LVDS1' : 'xinerama-0' %>
 
   colors {
     background #000000

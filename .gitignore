@@ -8,6 +8,7 @@
 .emacs.d/.smex-items
 
 .i3/config
+.i3/ipc.sock
 
 .vim/backup/
 .vim/.netrwhist
