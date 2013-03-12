@@ -12,11 +12,11 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-package-load-list '(rainbow-mode smooth-scrolling
+(defvar my-package-load-list '(rainbow-mode smooth-scrolling git-gutter
                                ido-yes-or-no maxframe color-theme inf-ruby ruby-mode rvm
                                flymake-ruby hl-line+ dired-single dired-details
                                magit markdown-mode sass-mode  ace-jump-mode wrap-region
-                               yaml-mode fuzzy popup ruby-end ruby-block rspec-mode ruby-tools
+                               yaml-mode fuzzy popup ruby-end ruby-block rspec-mode ruby-tools slim-mode
                                rinari
                                starter-kit-ruby starter-kit)
   "A list of packages to ensure are installed at launch.")
