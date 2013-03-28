@@ -12,6 +12,7 @@ if [ $HOSTNAME = "rusty" ]; then
   nm-applet --sm-disable &
   thunar --daemon &
   dunst &
+  xrandr --addmode VGA1 1366x768
 else
   # medapp ws
   gnome-settings-daemon &
@@ -25,6 +26,6 @@ xset s 0
 xset s noblank
 xset -dpms
 
-erb -T "-"  ~/.i3/config.erb > ~/.i3/config
+erb  ~/.i3/config.erb > ~/.i3/config
 
 exec i3

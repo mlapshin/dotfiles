@@ -1,14 +1,14 @@
 # This file has been auto-generated from ~/.i3/config.erb
 # All changes will be overwritten
-<%- $HOSTNAME = `hostname` %>
+<% $HOSTNAME = `hostname`.chomp %>
 
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-<%- if $HOSTNAME != 'rusty' %>
+<% if $HOSTNAME != 'rusty' %>
 force_xinerama yes
-<%- end -%>
+<% end %>
 
 set $mod Mod4
 
@@ -193,7 +193,7 @@ client.focused_inactive #374950 #61818c #333333 #ff0000
 client.unfocused        #0f0f0f #424242 #999999 #ff0000
 client.urgent           #cc8f33 #FF9900 #000000 #ff0000
 
-<%- if $HOSTNAME != 'rusty' %>
+<% if $HOSTNAME != 'rusty' %>
 workspace 1 output xinerama-0
 workspace 2 output xinerama-0
 workspace 3 output xinerama-0
@@ -205,11 +205,11 @@ workspace 7 output xinerama-1
 workspace 8 output xinerama-1
 workspace 9 output xinerama-1
 workspace 10 output xinerama-1
-<%- else -%>
+<% else %>
 workspace 8 output VGA1
 workspace 9 output VGA1
 workspace 10 output VGA1
-<%- end -%>
+<% end %>
 
 # The IPC interface allows programs like an external workspace bar
 # (i3-wsbar) or i3-msg (can be used to "remote-control" i3) to work.
