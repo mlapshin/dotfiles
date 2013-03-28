@@ -14,7 +14,7 @@ set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font xft:Droid Sans Mono 8
+font xft:Droid Sans Mono <%= $HOSTNAME == 'rusty' ? '8' : '9' %>
 # font xft:Terminus:size=9:style=Regular
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -63,7 +63,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen
 
 # lock screen on ctrl+mod+l
-bindsym $mod+Ctrl+l exec i3-msg workspace 1 && exec slock
+bindsym $mod+Ctrl+l exec i3-msg workspace 1 && exec i3lock -c 3299BB
 
 # change container layout (stacked, tabbed, default)
 bindsym $mod+s layout stacking
@@ -165,6 +165,8 @@ for_window [class="Xfce4-notifyd"] floating enable; border none;
 
 for_window [class="Gimp"] border pixel 1;
 for_window [class="Gimp"] floating enable;
+for_window [class="Wine"] floating enable;
+for_window [class="Wine"] border none;
 for_window [class="Chromium"] border none;
 for_window [class="Emacs"] border none;
 for_window [class="URxvt"] border pixel 1;
@@ -173,7 +175,7 @@ for_window [class="URxvt"] border pixel 1;
 # finds out, if available)
 bar {
   status_command $HOME/bin/conky-i3bar
-  tray_output <%= $HOSTNAME == 'rusty' ? 'LVDS1' : 'VGA1' %>
+  tray_output <%= $HOSTNAME == 'rusty' ? 'LVDS1' : 'xinerama-0' %>
 
   colors {
     background #000000

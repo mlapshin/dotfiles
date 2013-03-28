@@ -63,7 +63,7 @@ do
       local text = ""
 
       if bat_short == "N" or bat_short == "U" or bat_short == "E" then
-         return "{ \"full_text\":\" No BAT \", \"color\":\""..muted_color.."\" }"
+         return "{ \"full_text\":\" No BAT \", \"color\":\""..muted_color.."\" },"
       else
          percents = percents:gsub("%%", "")
          percents = tonumber(percents)
@@ -84,12 +84,12 @@ do
             clr = muted_color
          end
 
-         return "{ \"full_text\":\" BAT: "..percents.."\% "..bat_short..bat_time.." \", \"color\":\""..clr.."\"}"
+         return "{ \"full_text\":\" BAT: "..percents.."\% "..bat_short..bat_time.." \", \"color\":\""..clr.."\"},"
       end
    end
 
    function conky_statusbar_cpu()
-      local percents = tonumber(conky_parse("$cpu")) or 0
+      local percents = tonumber(conky_parse("$cpu"))
       local clr = default_color
 
       local tempstr = conky_parse("${exec sensors | grep \"Core 0\"|awk '{print $3}'}")
@@ -102,7 +102,7 @@ do
          clr = critical_color
       end
 
-      return "{ \"full_text\":\" CPU: ${lua_parse format %2.0f ${cpu} }%  "..tempstr.."  ${lua_parse format %1.2f ${loadavg 1}} LA \", \"color\":\""..clr.."\"}"
+      return "{ \"full_text\":\" CPU: ${lua_parse format %2.0f ${cpu} }%  "..tempstr.."  ${lua_parse format %1.2f ${loadavg 1}} LA \", \"color\":\""..clr.."\"},"
    end
 
    function conky_statusbar_topproc()
@@ -121,7 +121,7 @@ do
    function conky_statusbar_keyb()
       local clr = "\\#ffffff"
 
-      return "{ \"full_text\":\" ${exec skb 1} \", \"color\":\""..clr.."\"}"
+      return "{ \"full_text\":\" ${exec skb 1} \", \"color\":\""..clr.."\"},"
    end
 
    function conky_statusbar_mem()
@@ -134,7 +134,7 @@ do
          clr = warning_color
       end
 
-      return "{ \"full_text\":\" MEM: "..percents.."\% Used (${mem}/${memmax}) \", \"color\":\""..clr.."\"}"
+      return "{ \"full_text\":\" MEM: "..percents.."\% Used (${mem}/${memmax}) \", \"color\":\""..clr.."\"},"
    end
 
 end
