@@ -6,10 +6,6 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-<% if $HOSTNAME != 'rusty' %>
-force_xinerama yes
-<% end %>
-
 set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
@@ -175,7 +171,7 @@ for_window [class="URxvt"] border pixel 1;
 # finds out, if available)
 bar {
   status_command $HOME/bin/conky-i3bar
-  tray_output <%= $HOSTNAME == 'rusty' ? 'LVDS1' : 'xinerama-0' %>
+  tray_output <%= $HOSTNAME == 'rusty' ? 'LVDS1' : 'DVI-I-1' %>
 
   colors {
     background #000000
@@ -196,17 +192,18 @@ client.unfocused        #0f0f0f #424242 #999999 #ff0000
 client.urgent           #cc8f33 #FF9900 #000000 #ff0000
 
 <% if $HOSTNAME != 'rusty' %>
-workspace 1 output xinerama-0
-workspace 2 output xinerama-0
-workspace 3 output xinerama-0
-workspace 4 output xinerama-0
-workspace 5 output xinerama-0
+workspace 1 output DVI-I-1
+workspace 2 output DVI-I-1
+workspace 3 output DVI-I-1
+workspace 4 output DVI-I-1
+workspace 5 output DVI-I-1
 
-workspace 6 output xinerama-1
-workspace 7 output xinerama-1
-workspace 8 output xinerama-1
-workspace 9 output xinerama-1
-workspace 10 output xinerama-1
+
+workspace 6 output VGA-0
+workspace 7 output VGA-0
+workspace 8 output VGA-0
+workspace 9 output VGA-0
+workspace 10 output VGA-0
 <% else %>
 workspace 8 output VGA1
 workspace 9 output VGA1

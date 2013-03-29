@@ -94,13 +94,7 @@
  '(truncate-lines t)
  '(whitespace-global-modes (quote (not comint-mode)))
  '(whitespace-style (quote (tabs trailing space-before-tab space-after-tab tab-mark)))
- '(x-select-enable-clipboard t)
- '(yas-fallback-behavior (quote call-other-command))
- '(yas-global-mode t nil (yasnippet))
- '(yas-prompt-functions (quote (yas/dropdown-prompt yas/completing-prompt yas/ido-prompt yas/no-prompt)))
- '(yas-snippet-dirs "/home/sotakone/.emacs.d/snippets/text-mode/" nil (yasnippet))
- '(yas-trigger-key "")
- '(yas-use-menu (quote full)))
+ '(x-select-enable-clipboard t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

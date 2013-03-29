@@ -89,7 +89,7 @@ do
    end
 
    function conky_statusbar_cpu()
-      local percents = tonumber(conky_parse("$cpu"))
+      local percents = tonumber(conky_parse("$cpu")) or 0
       local clr = default_color
 
       local tempstr = conky_parse("${exec sensors | grep \"Core 0\"|awk '{print $3}'}")

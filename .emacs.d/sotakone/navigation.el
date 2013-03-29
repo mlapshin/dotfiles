@@ -26,6 +26,7 @@
 
 (add-hook 'after-init-hook
           (lambda ()
+            (message "hello from after-init hook")
             ;; make cursor movement keys under right hand's home-row.
             (global-set-key (kbd "M-h") 'backward-char)
             (global-set-key (kbd "M-l") 'forward-char)

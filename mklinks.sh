@@ -1,32 +1,32 @@
-#!/bin/bash
+Q#!/bin/bash
 
-ln -sfvT /home/sotakone/dotfiles/.emacs.d /home/sotakone/.emacs.d
+ln -sfvT /home/mlapshin/dotfiles/.emacs.d /home/mlapshin/.emacs.d
 
-ln -sfvT /home/sotakone/dotfiles/.vim /home/sotakone/.vim
-ln -sfvT /home/sotakone/dotfiles/.vimrc /home/sotakone/.vimrc
+ln -sfvT /home/mlapshin/dotfiles/.vim /home/mlapshin/.vim
+ln -sfvT /home/mlapshin/dotfiles/.vimrc /home/mlapshin/.vimrc
 
-ln -sfvT /home/sotakone/dotfiles/.Xresources /home/sotakone/.Xresources
-ln -sfvT /home/sotakone/dotfiles/.xinitrc /home/sotakone/.xinitrc
-ln -sfvT /home/sotakone/dotfiles/.xsession /home/sotakone/.xsession
-ln -sfvT /home/sotakone/dotfiles/.xmodmaprc /home/sotakone/.xmodmaprc
+ln -sfvT /home/mlapshin/dotfiles/.Xresources /home/mlapshin/.Xresources
+ln -sfvT /home/mlapshin/dotfiles/.xinitrc /home/mlapshin/.xinitrc
+ln -sfvT /home/mlapshin/dotfiles/.xsession /home/mlapshin/.xsession
+ln -sfvT /home/mlapshin/dotfiles/.xmodmaprc /home/mlapshin/.xmodmaprc
 
-ln -sfvT /home/sotakone/dotfiles/.gitconfig /home/sotakone/.gitconfig
-ln -sfvT /home/sotakone/dotfiles/.gemrc /home/sotakone/.gemrc
+ln -sfvT /home/mlapshin/dotfiles/.gitconfig /home/mlapshin/.gitconfig
+ln -sfvT /home/mlapshin/dotfiles/.gemrc /home/mlapshin/.gemrc
 
-ln -sfvT /home/sotakone/dotfiles/.bashrc /home/sotakone/.bashrc
-ln -sfvT /home/sotakone/dotfiles/.config/awesome /home/sotakone/.config/awesome
-ln -sfvT /home/sotakone/dotfiles/.config/twmn /home/sotakone/.config/twmn
+ln -sfvT /home/mlapshin/dotfiles/.bashrc /home/mlapshin/.bashrc
+ln -sfvT /home/mlapshin/dotfiles/.config/awesome /home/mlapshin/.config/awesome
+ln -sfvT /home/mlapshin/dotfiles/.config/twmn /home/mlapshin/.config/twmn
 
-ln -sfvT /home/sotakone/dotfiles/.urxvt /home/sotakone/.urxvt
-ln -sfvT /home/sotakone/dotfiles/.bash_profile /home/sotakone/.bash_profile
+ln -sfvT /home/mlapshin/dotfiles/.urxvt /home/mlapshin/.urxvt
+ln -sfvT /home/mlapshin/dotfiles/.bash_profile /home/mlapshin/.bash_profile
 
-ln -sfvT /home/sotakone/dotfiles/.tmux.conf /home/sotakone/.tmux.conf
+ln -sfvT /home/mlapshin/dotfiles/.tmux.conf /home/mlapshin/.tmux.conf
 
-ln -sfvT /home/sotakone/dotfiles/bin /home/sotakone/bin
+ln -sfvT /home/mlapshin/dotfiles/bin /home/mlapshin/bin
 
-ln -sfvT /home/sotakone/dotfiles/.i3 /home/sotakone/.i3
-ln -sfvT /home/sotakone/dotfiles/.conky /home/sotakone/.conky
+ln -sfvT /home/mlapshin/dotfiles/.i3 /home/mlapshin/.i3
+ln -sfvT /home/mlapshin/dotfiles/.conky /home/mlapshin/.conky
 
-ln -sfvT /home/sotakone/dotfiles/.inputrc /home/sotakone/.inputrc
-ln -sfvT /home/sotakone/dotfiles/.config/dunst /home/sotakone/.config/dunst
-ln -sfvT /home/sotakone/dotfiles/.config/fontconfig /home/sotakone/.config/fontconfig
+ln -sfvT /home/mlapshin/dotfiles/.inputrc /home/mlapshin/.inputrc
+ln -sfvT /home/mlapshin/dotfiles/.config/dunst /home/mlapshin/.config/dunst
+ln -sfvT /home/mlapshin/dotfiles/.config/fontconfig /home/mlapshin/.config/fontconfig
