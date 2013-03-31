@@ -2,8 +2,8 @@
 ;;(add-to-list 'load-path "~/.emacs.d/vendor/yasnippet/")
 
 ;;(require 'yasnippet)
-;;(require 'auto-complete)
-;;(require 'auto-complete-config)
+(require 'auto-complete)
+(require 'auto-complete-config)
 
 ;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete/dict")
 ;;(add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
