@@ -9,3 +9,4 @@
   (define-key ido-completion-map (kbd "M-k") 'ido-prev-match))
 
 (global-set-key (kbd "C-x C-M-f") 'find-file-in-project)
+

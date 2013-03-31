@@ -11,6 +11,10 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-w") 'whitespace-cleanup)
 
+(global-set-key (kbd "M-Z") 'zap-up-to-char)
+(global-set-key (kbd "C-x j") 'join-line)
+(global-set-key (kbd "C-x t") 'transpose-lines)
+
 (global-set-key (kbd "<f5>") 'compile)
 
 (global-unset-key (kbd "C-x C-z"))
@@ -31,8 +35,6 @@ function will balance window instead of maximizing it")
   (setf window-maximized (not window-maximized)))
 
 (global-set-key (kbd "<f12>") 'maximize-or-balance-window)
-
-(global-set-key (kbd "C-M-i") 'imenu)
 
 ;; (global-unset-key (kbd "C-x C-c"))
 ;; (global-set-key (kbd "C-x C-z") (save-buffers-kill-terminal))

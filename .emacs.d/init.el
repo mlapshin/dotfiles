@@ -3,6 +3,9 @@
 (require 'package)
 (package-initialize)
 
+(add-to-list 'load-path "~/.emacs.d/vendor/helm")
+(require 'helm-config)
+
 (mapc 'load (directory-files
              (concat user-emacs-directory "custom") t "^[^#].*el$"))
 
