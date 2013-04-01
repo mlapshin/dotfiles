@@ -51,7 +51,6 @@
 (global-set-key (kbd "C-M-k") 'windmove-up) ; move to upper window
 (global-set-key (kbd "C-M-j") 'windmove-down) ; move to downer window
 
-(add-hook 'ruby-mode-hook 'stk-unset-hjkl-keys)
 (add-hook 'c-mode-hook 'stk-unset-hjkl-keys)
 (add-hook 'c++-mode-hook 'stk-unset-hjkl-keys)
 (add-hook 'paredit-mode-hook 'stk-unset-hjkl-keys)

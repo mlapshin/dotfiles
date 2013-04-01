@@ -25,8 +25,27 @@
 
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 
-;; Undo on C-z
-(global-set-key (kbd "C-z") 'undo)
+(defun prelude-move-line-up ()
+  "Move the current line up."
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2))
+
+(defun prelude-move-line-down ()
+  "Move the current line down."
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1))
+
+(global-set-key (kbd "C-n") 'prelude-move-line-down)
+(global-set-key (kbd "C-p") 'prelude-move-line-up)
+
+(defun sudo-edit (&optional arg)
+  (interactive "p")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
 ;; Search
 ;; I-search with initial contents
