@@ -62,7 +62,6 @@
                     (indent-line-to arg-indent)))
              (when (> offset 0) (forward-char offset))))))
 
-     (idle-highlight-mode t)
      (rvm-use-default)
 
      (remove-hook 'ruby-mode-hook 'esk-paredit-nonlisp)
@@ -73,12 +72,12 @@
      (add-hook 'ruby-mode-hook
                (lambda ()
                  (ruby-tools-mode t)
-
                  (ruby-block-mode t)
                  (ruby-block-highlight-toggle)
 
                  (add-hook 'before-save-hook 'whitespace-cleanup)
 
+                 (idle-highlight-mode t)
                  (flymake-ruby-load)
                  (paredit-mode 0)
                  (flymake-mode t)
@@ -87,6 +86,5 @@
                  (define-key ruby-mode-map (kbd "C-n C-d") 'narrow-to-ruby-def)
                  (define-key ruby-mode-map (kbd "C-j") 'newline)
                  (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)
-                 (define-key ruby-mode-map (kbd "C-M-h") nil)
                  (stk-unset-hjkl-keys)))))
 

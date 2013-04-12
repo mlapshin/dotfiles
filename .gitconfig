@@ -49,3 +49,5 @@
 	editor = emacsclient -t
 [pull]
 	default = matching
+[diff]
+	algorithm = patience

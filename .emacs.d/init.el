@@ -8,6 +8,8 @@
 (mapc 'load (directory-files
              (concat user-emacs-directory "custom") t "^[^#].*el$"))
 
+(require 'flymake-cursor)
+
 (setq custom-file "~/.emacs.d/sotakone-custom-variables.el")
 (load custom-file)
 
