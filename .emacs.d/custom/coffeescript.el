@@ -1,3 +1,5 @@
+(require 'coffee-mode)
+
 (add-hook 'coffee-mode-hook
           (lambda ()
             (paredit-mode 0)
