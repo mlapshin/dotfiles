@@ -27,6 +27,7 @@
  '(c-cleanup-list (quote (brace-else-brace brace-elseif-brace brace-catch-brace empty-defun-braces one-liner-defun defun-close-semi list-close-comma scope-operator compact-empty-funcall comment-close-slash)))
  '(c-strict-syntax-p t)
  '(calendar-week-start-day 1)
+ '(coffee-tab-width 2)
  '(color-theme-is-cumulative nil)
  '(compilation-window-height 15)
  '(css-electric-keys (quote (125 59 41)))
