@@ -36,21 +36,12 @@ URxvt*shading: 15
 URxvt*scrollBar: false
 URxvt*scrollstyle: plain
 
-URxvt.perl-lib: /home/sotakone/.urxvt/pm
-URxvt.perl-ext-common:  default,clipboard,url-select,keyboard-select
-URxvt.keysym.A-w:   perl:clipboard:copy
-URxvt.keysym.C-y:   perl:clipboard:paste
-URxvt.keysym.C-A-y: perl:clipboard:paste_escaped
-URxvt.keysym.M-u:       perl:url-select:select_next
-URxvt.keysym.M-Escape:  perl:keyboard-select:activate
-URxvt.keysym.M-s:       perl:keyboard-select:search
-
-URxvt-emacs.keysym.A-w: builtin:
-URxvt-emacs.keysym.C-y: builtin:
-URxvt-emacs.keysym.C-A-y: builtin:
-URxvt-emacs.keysym.M-u: builtin:
-URxvt-emacs.keysym.M-Escape: builtin:
-URxvt-emacs.keysym.M-s: builtin:
+URxvt.keysym.A-w: builtin:
+URxvt.keysym.C-y: builtin:
+URxvt.keysym.C-A-y: builtin:
+URxvt.keysym.M-u: builtin:
+URxvt.keysym.M-Escape: builtin:
+URxvt.keysym.M-s: builtin:
 
 Xft.dpi: 96
 Xft.antialias: true
