@@ -3,9 +3,7 @@
 
   (let ((saved-point (point)))
     (beginning-of-line-text)
-    (message "Saved point %s, current point %s" saved-point (point))
-    (if (= saved-point (point))
-        (beginning-of-line))))
+    (and (= saved-point (point) (beginning-of-line)))))
 
 (defun stk-unset-hjkl-keys ()
   "Unsets HJKL movement keys in current mode"
@@ -36,14 +34,15 @@
 
 (global-set-key (kbd "C-a") 'smart-beginning-of-line)
 
-(global-set-key (kbd "M-J") 'scroll-up)
-(global-set-key (kbd "M-K") 'scroll-down)
+(global-set-key (kbd "M-J") (lambda () (interactive) (next-line 5)))
+(global-set-key (kbd "M-K") (lambda () (interactive) (previous-line 5)))
+
 (global-set-key (kbd "M-H") 'backward-word)
 (global-set-key (kbd "M-L") 'forward-word)
 (global-set-key (kbd "M-Р") 'backward-char)
 (global-set-key (kbd "M-Д") 'forward-char)
-(global-set-key (kbd "M-Л") 'previous-line)
-(global-set-key (kbd "M-О") 'next-line)
+.(global-set-key (kbd "M-О") (lambda () (interactive) (next-line 5)))
+(global-set-key (kbd "M-Л") (lambda () (interactive) (previous-line 5)))
 
 ;; Windows navigation
 (global-set-key (kbd "C-M-h") 'windmove-left) ; move to left windnow
