@@ -6,7 +6,6 @@
 (depends-on "smooth-scrolling")
 (depends-on "git-gutter")
 (depends-on "auto-complete")
-;; (depends-on "ido-yes-or-no")
 (depends-on "color-theme")
 (depends-on "maxframe")
 (depends-on "dired-details")

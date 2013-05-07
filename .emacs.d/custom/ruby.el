@@ -40,6 +40,12 @@
      (require 'ruby-tools)
      (require 'rspec-mode)
 
+     ;; Make ruby-tools mode work in terminal
+     (define-key ruby-tools-mode-map (kbd "C-c '") 'ruby-tools-to-single-quote-string)
+     (define-key ruby-tools-mode-map (kbd "C-c \"") 'ruby-tools-to-double-quote-string)
+     (define-key ruby-tools-mode-map (kbd "C-c :") 'ruby-tools-to-symbol)
+     (define-key ruby-tools-mode-map (kbd "C-c ;") 'ruby-tools-clear-string)
+
      (defadvice ruby-indent-line (after line-up-args activate)
        (let (indent prev-indent arg-indent)
          (save-excursion
