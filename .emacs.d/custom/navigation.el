@@ -41,7 +41,7 @@
 (global-set-key (kbd "M-L") 'forward-word)
 (global-set-key (kbd "M-Р") 'backward-char)
 (global-set-key (kbd "M-Д") 'forward-char)
-.(global-set-key (kbd "M-О") (lambda () (interactive) (next-line 5)))
+(global-set-key (kbd "M-О") (lambda () (interactive) (next-line 4)))
 (global-set-key (kbd "M-Л") (lambda () (interactive) (previous-line 5)))
 
 ;; Windows navigation
