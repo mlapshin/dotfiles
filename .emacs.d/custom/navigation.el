@@ -3,7 +3,7 @@
 
   (let ((saved-point (point)))
     (beginning-of-line-text)
-    (and (= saved-point (point) (beginning-of-line)))))
+    (if (= saved-point (point)) (beginning-of-line))))
 
 (defun stk-unset-hjkl-keys ()
   "Unsets HJKL movement keys in current mode"

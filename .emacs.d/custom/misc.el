@@ -21,20 +21,20 @@
 
 (global-set-key (kbd "<f11>") 'linum-mode)
 
-(defvar window-maximized nil
-  "When t, window is maximized and next call to maximize-or-balance-window
-function will balance window instead of maximizing it")
+(defvar stk-window-maximized-original-configuration nil)
 
-(defun maximize-or-balance-window ()
-  "Maximizes or balances current window"
+(defun stk-maximize-or-restore-window ()
+  "Maximizes current window or restores original window configuration"
   (interactive)
-  (message "Window maximized: %s" window-maximized)
-  (if window-maximized
-      (balance-windows)
-    (maximize-window))
-  (setf window-maximized (not window-maximized)))
+  (if stk-window-maximized-original-configuration
+      (progn
+        (set-window-configuration stk-window-maximized-original-configuration)
+        (setq stk-window-maximized-original-configuration nil))
+    (progn
+      (setq stk-window-maximized-original-configuration (current-window-configuration))
+      (maximize-window))))
 
-(global-set-key (kbd "<f12>") 'maximize-or-balance-window)
+(global-set-key (kbd "<f12>") 'stk-maximize-or-restore-window)
 
 (add-hook 'after-init-hook (lambda ()
                              ;; C-z should be rebinded at the end of initialization

@@ -72,6 +72,7 @@
  '(nxhtml-skip-welcome t)
  '(org-agenda-files (quote ("/home/sotakone/default.org")))
  '(org-log-done "time")
+ '(popwin-mode t)
  '(recentf-max-saved-items 50)
  '(recentf-mode t)
  '(rspec-executables (quote ("rspec" "/opt/local/bin/spec" "spec" "/usr/bin/spec" "/usr/local/bin/spec")))
