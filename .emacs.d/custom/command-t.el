@@ -112,7 +112,6 @@
 
 (defun command-t-halt ()
   (interactive)
-  (command-t-cleanup)
   (abort-recursive-edit))
 
 (defun command-t-cleanup ()
@@ -172,7 +171,13 @@
 
     (minibuffer-with-setup-hook 'command-t-minibuffer-setup-handler
       (read-from-minibuffer "Pattern: " nil command-t-minibuffer-map)
-      (set-buffer command-t-matches-buffer)
-      (find-file (car (nth command-t-selected-match-index command-t-matches)))
+
+      (when (and command-t-matches-buffer (buffer-live-p command-t-matches-buffer))
+        (set-buffer command-t-matches-buffer)
+        (find-file (car (nth command-t-selected-match-index command-t-matches))))
+
       (command-t-cleanup))
     ))
+
+
+(global-set-key (kbd "C-x p") 'command-t-find-file)

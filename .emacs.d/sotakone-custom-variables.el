@@ -86,6 +86,7 @@
  '(scroll-margin 2)
  '(show-paren-mode t)
  '(show-trailing-whitespace t)
+ '(smooth-scroll-margin 3)
  '(smooth-scroll-mode t)
  '(speedbar-frame-parameters (quote ((minibuffer) (width . 20) (border-width . 0) (menu-bar-lines . 0) (tool-bar-lines . 0) (unsplittable . t) (set-background-color "black"))))
  '(standard-indent 2)
