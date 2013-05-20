@@ -1,4 +1,5 @@
 (require 'popwin)
+(require 'find-file-in-project)
 
 (defun elisp-pp (sexp)
   (with-output-to-temp-buffer "*Pp Eval Output*"
@@ -96,13 +97,18 @@
 (defun command-t-minibuffer-changed-handler (start end old-len)
   (command-t-update-matches (minibuffer-contents)))
 
+(defun command-t-ffip-find-command ()
+  (format "find %s -type f \\( %s \\) %s | head -n %s"
+          (ffip-project-root) (ffip-join-patterns) ffip-find-options ffip-limit))
+
 (defun command-t-update-matches (lookup-string)
   (set-buffer command-t-matches-buffer)
 
   (setq command-t-matches
        (mapcar (lambda (path)
-                 (cons path (substring path (length "/home/sotakone/work/"))))
-               (delete "" (split-string (shell-command-to-string (format "find /home/sotakone/work/hydromate -name *%s*" lookup-string)) "\n"))))
+                 (cons path (substring path (length "/home/mlapshin/dotfiles/"))))
+               (delete "" (split-string (shell-command-to-string (format "find /home/mlapshin/dotfiles -name *%s*"
+                                                                         lookup-string)) "\n"))))
 
   (command-t-redraw-matches-buffer))
 
@@ -130,8 +136,12 @@
   ;; create buffer-local variable wich holds selected match index
   (set (make-local-variable 'command-t-selected-match-index) 0)
   (set (make-local-variable 'command-t-matches) '())
-  (setq-local smooth-scroll-margin 1)
-  (setq-local scroll-margin 1)
+
+  (make-local-variable 'smooth-scroll-margin)
+  (make-local-variable 'scroll-margin)
+
+  (setq smooth-scroll-margin 1)
+  (setq scroll-margin 1)
 
   (set (make-local-variable 'command-t-selected-match-overlay) (make-overlay 1 1))
   (overlay-put command-t-selected-match-overlay 'face 'command-t-selected-match-face)

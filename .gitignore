@@ -13,3 +13,4 @@
 .vim/backup/
 .vim/.netrwhist
 /bin/Gemfile.lock
+/bin/ctmatch

@@ -93,9 +93,4 @@
         (insert current-line)
         (decf n)))))
 
-(global-set-key (kbd "C-d") 'duplicate-current-line)
-
-(global-set-key (kbd "<M-return>") (lambda (&optional n)
-                               (interactive "p")
-                               (move-end-of-line 1)
-                               (reindent-then-newline-and-indent)))
+(global-set-key (kbd "M-RET") 'duplicate-current-line)
