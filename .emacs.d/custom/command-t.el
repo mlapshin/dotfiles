@@ -11,6 +11,11 @@
   :type 'integer
   :group 'command-t)
 
+(defcustom command-t-ctmatch-path "ctmatch"
+  "Path to ctmatch binary file"
+  :type 'string
+  :group 'command-t)
+
 (defface command-t-selected-match-face
   '((t (:foreground "white" :background "black")))
   "Face for selected matching file in popup window"
@@ -97,8 +102,9 @@
                       (cons path (substring path (length command-t-project-root)))))
 
                   (delete "" (split-string (shell-command-to-string
-                                            (format "%s | ~/bin/ctmatch \"%s\""
+                                            (format "%s | %s \"%s\""
                                                     command-t-find-command
+                                                    command-t-ctmatch-path
                                                     (shell-quote-argument lookup-string)))
                                            "\n"))))
 

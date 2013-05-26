@@ -29,6 +29,7 @@
  '(calendar-week-start-day 1)
  '(coffee-tab-width 2)
  '(color-theme-is-cumulative nil)
+ '(command-t-ctmatch-path "~/bin/ctmatch")
  '(compilation-window-height 15)
  '(css-electric-keys (quote (125 59 41)))
  '(css-indent-offset 2)
