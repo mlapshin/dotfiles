@@ -35,6 +35,12 @@
 (defvar command-t-halted nil
   "Set to t when command-t-find-file halted by user")
 
+(defun command-t-trim-string (string)
+  "Remove white spaces in beginning and ending of STRING.
+White space here is any of: space, tab, emacs newline (line feed, ASCII 10)."
+
+  (replace-regexp-in-string "\\`[ \t\n]*" "" (replace-regexp-in-string "[ \t\n]*\\'" "" string)))
+
 (defun command-t-redraw-matches-buffer ()
   (with-current-buffer command-t-matches-buffer
     (setq buffer-read-only nil)
@@ -87,25 +93,32 @@
                                        (- (length command-t-matches) 1)))))
 
 (defun command-t-minibuffer-changed-handler (start end old-len)
-  (command-t-update-matches (minibuffer-contents)))
+  (let ((lookup-string (minibuffer-contents)))
+    (with-current-buffer command-t-matches-buffer
+      (setq command-t-lookup-string lookup-string)))
+
+  (command-t-update-matches))
 
 (defun command-t-ffip-find-command ()
   (format "find %s -type f \\( %s \\) %s | head -n %s"
           (ffip-project-root) (ffip-join-patterns) ffip-find-options ffip-limit))
 
-(defun command-t-update-matches (lookup-string)
+(defun command-t-update-matches ()
   (with-current-buffer command-t-matches-buffer
-    (setq command-t-matches
-          (mapcar (lambda (path-with-score)
-                    (let ((path (replace-regexp-in-string "^[0-9.]+: " "" path-with-score)))
-                      (cons path (substring path (length command-t-project-root)))))
 
-                  (delete "" (split-string (shell-command-to-string
-                                            (format "%s | %s \"%s\""
-                                                    command-t-find-command
-                                                    command-t-ctmatch-path
-                                                    (shell-quote-argument lookup-string)))
-                                           "\n"))))
+    (if command-t-files-cached
+        (setq command-t-matches
+              (mapcar (lambda (path-with-score)
+                        (let ((path (replace-regexp-in-string "^[0-9.]+: " "" path-with-score)))
+                          (cons path (substring path (length command-t-project-root)))))
+
+                      (delete "" (split-string (shell-command-to-string
+                                                (format "cat %s | %s \"%s\""
+                                                        command-t-files-cache-file
+                                                        command-t-ctmatch-path
+                                                        (shell-quote-argument command-t-lookup-string)))
+                                               "\n"))))
+      (setq command-t-matches '()))
 
     (command-t-redraw-matches-buffer)))
 
@@ -120,17 +133,14 @@
 
 (defun command-t-cleanup ()
   (when command-t-matches-buffer
-    (kill-buffer command-t-matches-buffer)
-    (setq command-t-matches-buffer nil)
-    (setq command-t-matches-window nil))
+    (with-current-buffer command-t-matches-buffer
+      (delete-file command-t-files-cache-file)))
 
-  (message "command-t cleaup"))
+  (kill-buffer command-t-matches-buffer)
+  (setq command-t-matches-buffer nil)
+  (setq command-t-matches-window nil))
 
 (defun command-t-minibuffer-exit-handler ())
-
-(defun command-t-create-files-cache ()
-  (with-current-buffer command-t-matches-buffer
-    )
 
 (defun command-t-create-matches-buffer ()
   (setq command-t-matches-buffer (get-buffer-create " *command-t-matches*"))
@@ -143,6 +153,9 @@
       (set (make-local-variable 'command-t-project-root) (expand-file-name project-root))
       (set (make-local-variable 'command-t-find-command) find-command)
       (set (make-local-variable 'command-t-files-cache-file) (make-temp-file "ctem"))
+      (set (make-local-variable 'command-t-files-cached) nil)
+      (set (make-local-variable 'command-t-lookup-string) "")
+      (set (make-local-variable 'command-t-total-matches-count) 0)
 
       (use-local-map command-t-matches-buffer-map)
 
@@ -160,15 +173,39 @@
       (set (make-local-variable 'command-t-selected-match-overlay) (make-overlay 1 1))
       (overlay-put command-t-selected-match-overlay 'face 'command-t-selected-match-face)
 
-      (set (make-local-variable 'mode-line-format)
-           '("Command-T:"
-             (:eval (format "%s files matched" (length command-t-matches)))))
+      (setq command-t-find-process (start-process-shell-command
+                                    "command-t-find-files"
+                                    (buffer-name command-t-matches-buffer)
+                                    (format "%s > %s"
+                                            command-t-find-command
+                                            command-t-files-cache-file)))
 
-      (setq show-trailing-whitespace nil)
+      (set-process-sentinel command-t-find-process (lambda (process event)
+                                                     (with-current-buffer command-t-matches-buffer
+                                                       (setq command-t-files-cached t)
+                                                       (setq command-t-total-matches-count
+                                                             (command-t-trim-string
+                                                              (shell-command-to-string
+                                                               (format "cat %s | wc -l" command-t-files-cache-file))))
 
-      (setq command-t-find-process (start-process-shell-command "command-t-find-files"
-                                                                (buffer-name command-t-matches-buffer)
-                                                                (format "%s > %s" command-t-find-command command-t-files-cache-file)))))))
+                                                       (command-t-update-matches)
+                                                       (force-mode-line-update t))))
+
+      (set (make-local-variable 'mode-line-format) nil)
+      (set (make-local-variable 'header-line-format)
+           '("Command-T: "
+             (:eval (when (not command-t-files-cached)
+                      "fetching project files..."))
+
+             (:eval (when command-t-files-cached
+                      (format "%s files matched (%s total)"
+                              (length command-t-matches)
+                              command-t-total-matches-count)))
+             ))
+
+      (force-mode-line-update t)
+
+      (setq show-trailing-whitespace nil))))
 
 (defun command-t-find-file (&optional arg)
   "Finds file using fuzzy matching."
@@ -180,7 +217,6 @@
       (setq command-t-halted nil)
 
       (command-t-create-matches-buffer)
-      (command-t-create-files-cache)
 
       (when t ;;(null command-t-minibuffer-map)
         (setq command-t-minibuffer-map (make-sparse-keymap))
@@ -219,6 +255,6 @@
             (command-t-cleanup)))
 
         (when filename
-            (find-file filename))))))
+          (find-file filename))))))
 
 (global-set-key (kbd "C-x p") 'command-t-find-file)
