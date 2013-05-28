@@ -1,4 +1,3 @@
-(require 'popwin)
 (require 'find-file-in-project)
 
 (defgroup command-t nil
@@ -129,6 +128,10 @@
 
 (defun command-t-minibuffer-exit-handler ())
 
+(defun command-t-create-files-cache ()
+  (with-current-buffer command-t-matches-buffer
+    )
+
 (defun command-t-create-matches-buffer ()
   (setq command-t-matches-buffer (get-buffer-create " *command-t-matches*"))
 
@@ -139,12 +142,14 @@
       ;; remember ffip variables from original buffer
       (set (make-local-variable 'command-t-project-root) (expand-file-name project-root))
       (set (make-local-variable 'command-t-find-command) find-command)
+      (set (make-local-variable 'command-t-files-cache-file) (make-temp-file "ctem"))
 
       (use-local-map command-t-matches-buffer-map)
 
       ;; create buffer-local variable which holds selected match index
       (set (make-local-variable 'command-t-selected-match-index) 0)
       (set (make-local-variable 'command-t-matches) '())
+      (set (make-local-variable 'command-t-find-process) nil)
 
       (make-local-variable 'smooth-scroll-margin)
       (make-local-variable 'scroll-margin)
@@ -156,10 +161,14 @@
       (overlay-put command-t-selected-match-overlay 'face 'command-t-selected-match-face)
 
       (set (make-local-variable 'mode-line-format)
-           '(:eval (format "Command-T: %s files matched" (length command-t-matches))))
+           '("Command-T:"
+             (:eval (format "%s files matched" (length command-t-matches)))))
 
-      (setq show-trailing-whitespace nil))))
+      (setq show-trailing-whitespace nil)
 
+      (setq command-t-find-process (start-process-shell-command "command-t-find-files"
+                                                                (buffer-name command-t-matches-buffer)
+                                                                (format "%s > %s" command-t-find-command command-t-files-cache-file)))))))
 
 (defun command-t-find-file (&optional arg)
   "Finds file using fuzzy matching."
@@ -171,6 +180,7 @@
       (setq command-t-halted nil)
 
       (command-t-create-matches-buffer)
+      (command-t-create-files-cache)
 
       (when t ;;(null command-t-minibuffer-map)
         (setq command-t-minibuffer-map (make-sparse-keymap))
