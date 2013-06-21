@@ -3,6 +3,7 @@
 (source "marmalade" "http://marmalade-repo.org/packages/")
 
 (depends-on "rainbow-mode")
+(depends-on "command-t")
 (depends-on "smooth-scrolling")
 (depends-on "git-gutter")
 (depends-on "auto-complete")
