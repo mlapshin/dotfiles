@@ -15,7 +15,7 @@ if [ $HOSTNAME = "rusty" ]; then
   thunar --daemon &
   dunst &
   xrandr --addmode VGA1 1366x768
-  ~/.dropbox-dist/dropbox &
+  dropboxd &
 else
   # medapp ws
   gnome-settings-daemon &
