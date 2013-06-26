@@ -50,6 +50,9 @@
 (global-set-key (kbd "C-M-k") 'windmove-up) ; move to upper window
 (global-set-key (kbd "C-M-j") 'windmove-down) ; move to downer window
 
+(require 'command-t)
+(global-set-key (kbd "C-x p") 'command-t-find-file)
+
 (add-hook 'c-mode-hook 'stk-unset-hjkl-keys)
 (add-hook 'c++-mode-hook 'stk-unset-hjkl-keys)
 (add-hook 'paredit-mode-hook 'stk-unset-hjkl-keys)
