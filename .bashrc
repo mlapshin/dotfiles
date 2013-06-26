@@ -23,6 +23,10 @@ if [ -f /usr/share/git/completion/git-completion.bash ]; then
   source /usr/share/git/completion/git-completion.bash
 fi
 
+if [ -f /usr/share/bash-completion/completions/git ]; then
+  source /usr/share/bash-completion/completions/git
+fi
+
 alias ls='ls --color=auto'
 alias g='git'
 alias gs='git status'
