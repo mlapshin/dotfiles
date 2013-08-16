@@ -8,7 +8,7 @@
   email = mikhail.a.lapshin@gmail.com
 
 [push]
-	default = matching
+	default = simple
 
 [alias]
   # I like using the interactive mode to make complex commits
