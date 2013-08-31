@@ -74,6 +74,7 @@
  '(org-agenda-files (quote ("/home/sotakone/default.org")))
  '(org-log-done "time")
  '(popwin-mode t)
+ '(popwin:special-display-config (quote (("*rspec-compilation*" :regexp nil :noselect t :stick t) (help-mode) (completion-list-mode :noselect t) (compilation-mode :noselect t) (grep-mode :noselect t :stick t) (occur-mode :noselect t) ("*Pp Macroexpand Output*" :noselect t) ("*Shell Command Output*") ("*vc-diff*") ("*vc-change-log*") (" *undo-tree*" :width 60 :position right) ("^\\*anything.*\\*$" :regexp t) ("*slime-apropos*") ("*slime-macroexpansion*") ("*slime-description*") ("*slime-compilation*" :noselect t) ("*slime-xref*") (sldb-mode :stick t) (slime-repl-mode) (slime-connection-list-mode))))
  '(recentf-max-saved-items 50)
  '(recentf-mode t)
  '(rspec-executables (quote ("rspec" "/opt/local/bin/spec" "spec" "/usr/bin/spec" "/usr/local/bin/spec")))
