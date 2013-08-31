@@ -32,3 +32,6 @@
 (depends-on "slim-mode")
 (depends-on "rinari")
 (depends-on "starter-kit")
+
+(depends-on "clojure-mode")
+(depends-on "clojure-test-mode")

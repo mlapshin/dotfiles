@@ -8,4 +8,3 @@
     (pp sexp)
     (with-current-buffer standard-output
       (emacs-lisp-mode))))
-

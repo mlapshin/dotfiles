@@ -1,9 +1,12 @@
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
 (require 'package)
-(package-initialize)
 
-(add-to-list 'load-path "~/.emacs.d/vendor/helm")
+(add-to-list 'package-archives
+             '("marmalade" .
+               "http://marmalade-repo.org/packages/"))
+
+(package-initialize)
 
 (mapc 'load (directory-files
              (concat user-emacs-directory "custom") t "^[^#].*el$"))
