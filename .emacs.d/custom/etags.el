@@ -16,6 +16,8 @@
 (defun etags-select-find-tag-at-point-or-region ()
   "Finds tag at point or selected region using etags-select."
   (interactive)
+  (require 'etags-select)
+
   (if (region-active-p)
       (etags-select-find (buffer-substring (region-beginning) (region-end)))
     (etags-select-find-tag-at-point)))
