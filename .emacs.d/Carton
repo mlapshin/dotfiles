@@ -32,6 +32,7 @@
 (depends-on "slim-mode")
 (depends-on "rinari")
 (depends-on "ruby-hash-syntax")
+(depends-on "etags-select")
 (depends-on "starter-kit")
 
 (depends-on "clojure-mode")
