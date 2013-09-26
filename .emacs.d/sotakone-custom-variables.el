@@ -38,6 +38,7 @@
  '(ecb-options-version "2.32")
  '(enable-local-variables :all)
  '(espresso-indent-level 2)
+ '(etags-select-use-short-name-completion t)
  '(etags-table-alist (quote (("/home/w/medapp/" . "/home/w/medapp/TAGS"))))
  '(global-auto-complete-mode t)
  '(global-font-lock-mode t)
