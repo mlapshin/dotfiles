@@ -5,4 +5,3 @@
 (add-hook 'nrepl-mode-hook
           (lambda ()
             (paredit-mode t)))
-

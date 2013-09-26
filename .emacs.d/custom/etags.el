@@ -1,0 +1,15 @@
+(defun build-ctags ()
+  (interactive)
+  (message "building project tags")
+  (let ((root (ffip-project-root)))
+    (shell-command (format "%s | ctags -e -R --extra=+fq -L - -f %sTAGS"
+                           (command-t-ffip-find-command)
+                           root)))
+  (visit-project-tags)
+  (message "tags built successfully"))
+
+(defun visit-project-tags ()
+  (interactive)
+  (let ((tags-file (concat (ffip-project-root) "TAGS")))
+    (visit-tags-table tags-file)
+    (message (concat "Loaded " tags-file))))

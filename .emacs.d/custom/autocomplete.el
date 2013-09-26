@@ -11,7 +11,6 @@
 (define-key ac-menu-map [return] 'ac-complete)
 
 (defun ac-common-setup ()
-  ;;(add-to-list 'ac-sources 'ac-source-yasnippet)
   (add-to-list 'ac-sources 'ac-source-etags))
 
 (ac-config-default)

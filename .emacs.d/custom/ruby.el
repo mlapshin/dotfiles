@@ -39,6 +39,7 @@
      (require 'ruby-block)
      (require 'ruby-tools)
      (require 'rspec-mode)
+     (require 'ruby-refactor)
 
      ;; Make ruby-tools mode work in terminal
      (define-key ruby-tools-mode-map (kbd "C-c '") 'ruby-tools-to-single-quote-string)
@@ -80,6 +81,7 @@
                  (ruby-tools-mode t)
                  (ruby-block-mode t)
                  (ruby-block-highlight-toggle)
+                 (ruby-refactor-mode)
 
                  (add-hook 'before-save-hook 'whitespace-cleanup)
 
