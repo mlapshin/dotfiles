@@ -95,4 +95,3 @@
                  (define-key ruby-mode-map (kbd "C-j") 'newline)
                  (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)
                  (stk-unset-hjkl-keys)))))
-
