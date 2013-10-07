@@ -46,6 +46,7 @@
      (define-key ruby-tools-mode-map (kbd "C-c \"") 'ruby-tools-to-double-quote-string)
      (define-key ruby-tools-mode-map (kbd "C-c :") 'ruby-tools-to-symbol)
      (define-key ruby-tools-mode-map (kbd "C-c ;") 'ruby-tools-clear-string)
+     (define-key ruby-tools-mode-map (kbd "C-c C-r h") 'ruby-toggle-hash-syntax)
 
      (defadvice ruby-indent-line (after line-up-args activate)
        (let (indent prev-indent arg-indent)

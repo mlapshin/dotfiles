@@ -37,3 +37,5 @@
 
 (depends-on "clojure-mode")
 (depends-on "clojure-test-mode")
+
+(depends-on "rainbow-delimiters")
