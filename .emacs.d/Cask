@@ -5,7 +5,6 @@
 (depends-on "rainbow-mode")
 
 (depends-on "smooth-scrolling")
-(depends-on "git-gutter")
 (depends-on "auto-complete")
 (depends-on "color-theme")
 (depends-on "maxframe")
@@ -14,7 +13,6 @@
 (depends-on "ruby-mode")
 (depends-on "rvm")
 (depends-on "flymake-ruby")
-(depends-on "hl-line+")
 (depends-on "dired-single")
 (depends-on "dired-details")
 (depends-on "magit")

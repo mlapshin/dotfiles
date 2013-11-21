@@ -9,6 +9,6 @@
     (with-current-buffer standard-output
       (emacs-lisp-mode))))
 
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (paredit-mode t)))
+;; (add-hook 'emacs-lisp-mode-hook
+;;           (lambda ()
+;;             (paredit-mode t)))

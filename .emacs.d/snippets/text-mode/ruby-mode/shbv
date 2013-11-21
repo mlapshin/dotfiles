@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: should be_valid
-# key: shbv
-# group: rspec
-# --
-should be_valid
