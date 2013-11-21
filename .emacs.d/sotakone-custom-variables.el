@@ -11,7 +11,9 @@
  '(ac-expand-on-auto-complete nil)
  '(ac-ignore-case nil)
  '(ac-menu-height 30)
- '(ac-modes (quote (lua-mode haml-mode emacs-lisp-mode lisp-interaction-mode c-mode cc-mode c++-mode clojure-mode java-mode perl-mode cperl-mode python-mode ruby-mode ecmascript-mode espresso-mode php-mode css-mode makefile-mode sh-mode fortran-mode f90-mode ada-mode xml-mode sgml-mode)))
+ '(ac-modes
+   (quote
+    (lua-mode haml-mode emacs-lisp-mode lisp-interaction-mode c-mode cc-mode c++-mode clojure-mode java-mode perl-mode cperl-mode python-mode ruby-mode ecmascript-mode espresso-mode php-mode css-mode makefile-mode sh-mode fortran-mode f90-mode ada-mode xml-mode sgml-mode)))
  '(ac-show-menu-immediately-on-auto-complete t)
  '(ac-stop-words (quote ("begin" "if" "else" "end" "do")))
  '(ac-trigger-key "TAB")
@@ -24,7 +26,9 @@
  '(browse-url-firefox-program "firefox")
  '(browse-url-generic-program "conkeror")
  '(c-basic-offset 2)
- '(c-cleanup-list (quote (brace-else-brace brace-elseif-brace brace-catch-brace empty-defun-braces one-liner-defun defun-close-semi list-close-comma scope-operator compact-empty-funcall comment-close-slash)))
+ '(c-cleanup-list
+   (quote
+    (brace-else-brace brace-elseif-brace brace-catch-brace empty-defun-braces one-liner-defun defun-close-semi list-close-comma scope-operator compact-empty-funcall comment-close-slash)))
  '(c-strict-syntax-p t)
  '(calendar-week-start-day 1)
  '(coffee-tab-width 2)
@@ -61,13 +65,20 @@
  '(iedit-toggle-key-default nil)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
- '(jabber-account-list (quote (("mikhail.a.lapshin@gmail.com" (:network-server . "talk.google.com") (:port . 443) (:connection-type . ssl)))))
+ '(jabber-account-list
+   (quote
+    (("mikhail.a.lapshin@gmail.com"
+      (:network-server . "talk.google.com")
+      (:port . 443)
+      (:connection-type . ssl)))))
  '(kill-whole-line nil)
  '(line-number-display-limit nil)
  '(linum-delay t)
  '(list-directory-verbose-switches "-lh")
  '(magit-commit-all-when-nothing-staged (quote ask-stage))
- '(majmodpri-mode-priorities (quote (cperl-mumamo-mode csound-sgml-mumamo-mode django-nxhtml-mumamo-mode django-html-mumamo-mode embperl-nxhtml-mumamo-mode embperl-html-mumamo-mode genshi-nxhtml-mumamo-mode genshi-html-mumamo-mode jsp-nxhtml-mumamo-mode jsp-html-mumamo-mode laszlo-nxml-mumamo-mode metapost-mumamo-mode mjt-nxhtml-mumamo-mode mjt-html-mumamo-mode noweb2-mumamo-mode perl-mumamo-mode smarty-nxhtml-mumamo-mode smarty-html-mumamo-mode nxhtml-mumamo-mode html-mumamo-mode nxml-mumamo-mode nxml-mode)))
+ '(majmodpri-mode-priorities
+   (quote
+    (cperl-mumamo-mode csound-sgml-mumamo-mode django-nxhtml-mumamo-mode django-html-mumamo-mode embperl-nxhtml-mumamo-mode embperl-html-mumamo-mode genshi-nxhtml-mumamo-mode genshi-html-mumamo-mode jsp-nxhtml-mumamo-mode jsp-html-mumamo-mode laszlo-nxml-mumamo-mode metapost-mumamo-mode mjt-nxhtml-mumamo-mode mjt-html-mumamo-mode noweb2-mumamo-mode perl-mumamo-mode smarty-nxhtml-mumamo-mode smarty-html-mumamo-mode nxhtml-mumamo-mode html-mumamo-mode nxml-mumamo-mode nxml-mode)))
  '(make-backup-files nil)
  '(max-lisp-eval-depth 50000)
  '(max-specpdl-size 100000)
@@ -76,13 +87,39 @@
  '(org-agenda-files (quote ("/home/sotakone/default.org")))
  '(org-log-done "time")
  '(popwin-mode t)
- '(popwin:special-display-config (quote (("*rspec-compilation*" :regexp nil :noselect t :stick t) (help-mode) (completion-list-mode :noselect t) (compilation-mode :noselect t) (grep-mode :noselect t :stick t) (occur-mode :noselect t) ("*Pp Macroexpand Output*" :noselect t) ("*Shell Command Output*") ("*vc-diff*") ("*vc-change-log*") (" *undo-tree*" :width 60 :position right) ("^\\*anything.*\\*$" :regexp t) ("*slime-apropos*") ("*slime-macroexpansion*") ("*slime-description*") ("*slime-compilation*" :noselect t) ("*slime-xref*") (sldb-mode :stick t) (slime-repl-mode) (slime-connection-list-mode))))
+ '(popwin:special-display-config
+   (quote
+    (("*rspec-compilation*" :regexp nil :noselect t :stick t :tail t)
+     (help-mode)
+     (completion-list-mode :noselect t)
+     (compilation-mode :noselect t :tail t)
+     (grep-mode :noselect t :stick t)
+     (occur-mode :noselect t)
+     ("*Pp Macroexpand Output*" :noselect t)
+     ("*Shell Command Output*" :tail t)
+     ("*vc-diff*")
+     ("*vc-change-log*")
+     (" *undo-tree*" :width 60 :position right)
+     ("^\\*anything.*\\*$" :regexp t)
+     ("*slime-apropos*")
+     ("*slime-macroexpansion*")
+     ("*slime-description*")
+     ("*slime-compilation*" :noselect t)
+     ("*slime-xref*")
+     (sldb-mode :stick t)
+     (slime-repl-mode)
+     (slime-connection-list-mode))))
+ '(projectile-completion-system (quote grizzl))
+ '(projectile-global-mode t)
  '(recentf-max-saved-items 50)
  '(recentf-mode t)
- '(rspec-executables (quote ("rspec" "/opt/local/bin/spec" "spec" "/usr/bin/spec" "/usr/local/bin/spec")))
+ '(rspec-executables
+   (quote
+    ("rspec" "/opt/local/bin/spec" "spec" "/usr/bin/spec" "/usr/local/bin/spec")))
  '(rspec-spec-command "rspec --drb")
  '(rspec-use-opts-file-when-available nil)
  '(rspec-use-rake-flag nil)
+ '(rspec-use-rake-when-possible nil)
  '(rspec-use-rvm t)
  '(ruby-electric-expand-delimiters-list (quote (91 40)))
  '(ruby-use-encoding-map nil)
@@ -92,7 +129,15 @@
  '(show-trailing-whitespace t)
  '(smooth-scroll-margin 3)
  '(smooth-scroll-mode t)
- '(speedbar-frame-parameters (quote ((minibuffer) (width . 20) (border-width . 0) (menu-bar-lines . 0) (tool-bar-lines . 0) (unsplittable . t) (set-background-color "black"))))
+ '(speedbar-frame-parameters
+   (quote
+    ((minibuffer)
+     (width . 20)
+     (border-width . 0)
+     (menu-bar-lines . 0)
+     (tool-bar-lines . 0)
+     (unsplittable . t)
+     (set-background-color "black"))))
  '(standard-indent 2)
  '(tab-stop-list (quote (2 4 6 8 10 12 14 16 18 20 22 24 26 28 30)))
  '(tab-width 2)
@@ -100,7 +145,9 @@
  '(tramp-default-method "ssh")
  '(truncate-lines t)
  '(whitespace-global-modes (quote (not comint-mode)))
- '(whitespace-style (quote (tabs trailing space-before-tab space-after-tab tab-mark)))
+ '(whitespace-style
+   (quote
+    (tabs trailing space-before-tab space-after-tab tab-mark)))
  '(x-select-enable-clipboard t))
 
 (custom-set-faces

@@ -32,7 +32,7 @@ URxvt*font: xft:DejaVu Sans Mono:pixelsize=14
 URxvt*letterSpace: -1
 
 URxvt*transparent: true
-URxvt*shading: 15
+URxvt*shading: 10
 URxvt*scrollBar: false
 URxvt*scrollstyle: plain
 

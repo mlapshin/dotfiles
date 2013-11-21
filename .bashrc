@@ -10,6 +10,8 @@ export EDITOR="emacsclient -t"
 source ~/dotfiles/git-prompt.sh
 source ~/dotfiles/knife-complete.sh
 
+PATH=$PATH:$HOME/.cask/bin
+
 if [ -f "$HOME/.rvm/scripts/rvm" ]; then
   source "$HOME/.rvm/scripts/rvm"
   PATH=$PATH:$HOME/.rvm/bin

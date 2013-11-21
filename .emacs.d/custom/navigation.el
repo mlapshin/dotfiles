@@ -50,11 +50,15 @@
 (global-set-key (kbd "C-M-k") 'windmove-up) ; move to upper window
 (global-set-key (kbd "C-M-j") 'windmove-down) ; move to downer window
 
-(require 'command-t)
-(global-set-key (kbd "C-x p") 'command-t-find-file)
-
 (add-hook 'c-mode-hook 'stk-unset-hjkl-keys)
 (add-hook 'c++-mode-hook 'stk-unset-hjkl-keys)
 (add-hook 'paredit-mode-hook 'stk-unset-hjkl-keys)
 (add-hook 'ibuffer-mode-hook 'stk-unset-hjkl-keys)
 (add-hook 'magit-mode-hook 'stk-unset-hjkl-keys)
+(add-hook 'nxml-mode-hook 'stk-unset-hjkl-keys)
+
+
+(require 'grizzl)
+(global-set-key (kbd "C-x p") 'projectile-find-file)
+(define-key *grizzl-keymap* (kbd "M-k") 'grizzl-set-selection+1)
+(define-key *grizzl-keymap* (kbd "M-j") 'grizzl-set-selection-1)

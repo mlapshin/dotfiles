@@ -39,3 +39,6 @@
 (add-hook 'after-init-hook (lambda ()
                              ;; C-z should be rebinded at the end of initialization
                              (global-unset-key (kbd "C-z"))))
+
+(require 'projectile)
+(projectile-global-on)

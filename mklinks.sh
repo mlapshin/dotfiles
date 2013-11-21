@@ -1,4 +1,4 @@
-Q#!/bin/bash
+#!/bin/bash
 
 ln -sfvT /home/mlapshin/dotfiles/.emacs.d /home/mlapshin/.emacs.d
 

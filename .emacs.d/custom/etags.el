@@ -1,7 +1,7 @@
 (defun build-tags ()
   (interactive)
   (message "building project tags")
-  (let ((root (ffip-project-root)))
+  (let ((root (projectile-project-root)))
     (shell-command (format "cd %s && ripper-tags --format=emacs --exclude=spec --exclude=test -R -f TAGS --force"
                            root)))
   (visit-project-tags)
@@ -9,7 +9,7 @@
 
 (defun visit-project-tags ()
   (interactive)
-  (let ((tags-file (concat (ffip-project-root) "TAGS")))
+  (let ((tags-file (concat (projectile-project-root) "TAGS")))
     (visit-tags-table tags-file)
     (message (concat "Loaded " tags-file))))
 

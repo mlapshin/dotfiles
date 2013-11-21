@@ -25,21 +25,21 @@
 
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 
-(defun prelude-move-line-up ()
+(defun move-line-up ()
   "Move the current line up."
   (interactive)
   (transpose-lines 1)
   (forward-line -2))
 
-(defun prelude-move-line-down ()
+(defun move-line-down ()
   "Move the current line down."
   (interactive)
   (forward-line 1)
   (transpose-lines 1)
   (forward-line -1))
 
-(global-set-key (kbd "C-n") 'prelude-move-line-down)
-(global-set-key (kbd "C-p") 'prelude-move-line-up)
+(global-set-key (kbd "C-n") 'move-line-down)
+(global-set-key (kbd "C-p") 'move-line-up)
 
 (defun sudo-edit (&optional arg)
   (interactive "p")

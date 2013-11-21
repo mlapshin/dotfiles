@@ -70,7 +70,7 @@
                     (indent-line-to arg-indent)))
              (when (> offset 0) (forward-char offset))))))
 
-     (rvm-use-default)
+     ;; (rvm-use-default)
 
      (remove-hook 'ruby-mode-hook 'esk-paredit-nonlisp)
 

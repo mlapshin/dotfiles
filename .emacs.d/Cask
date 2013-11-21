@@ -3,7 +3,7 @@
 (source "marmalade" "http://marmalade-repo.org/packages/")
 
 (depends-on "rainbow-mode")
-(depends-on "command-t")
+
 (depends-on "smooth-scrolling")
 (depends-on "git-gutter")
 (depends-on "auto-complete")
@@ -25,6 +25,9 @@
 (depends-on "yaml-mode")
 (depends-on "fuzzy")
 (depends-on "popup")
+
+(depends-on "grizzl")
+
 (depends-on "ruby-end")
 (depends-on "ruby-block")
 (depends-on "rspec-mode")
