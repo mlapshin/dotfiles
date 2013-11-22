@@ -37,6 +37,7 @@
 (depends-on "starter-kit")
 
 (depends-on "clojure-mode")
+(depends-on "ac-nrepl")
 (depends-on "clojure-test-mode")
 
 (depends-on "rainbow-delimiters")
