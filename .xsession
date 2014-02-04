@@ -24,7 +24,7 @@ else
   dropbox start
 fi
 
-# dropbox start
+btsync --config ~/.config/btsync/btsync.conf
 
 # disable x screen blanking
 xset s 0
