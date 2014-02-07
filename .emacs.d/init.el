@@ -20,3 +20,4 @@
 
 ;;; increase GC threshold for grizzl
 (setq gc-cons-threshold 20000000)
+(put 'erase-buffer 'disabled nil)

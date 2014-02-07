@@ -3,4 +3,6 @@
 (require 'iedit)
 
 (global-set-key (kbd "C-.") 'iedit-mode)
-(global-set-key (kbd "C-c .") 'iedit-mode) ;; for terminal
+(global-set-key (kbd "C-c .") 'iedit-mode)
+
+

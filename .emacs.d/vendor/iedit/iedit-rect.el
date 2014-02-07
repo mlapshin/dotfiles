@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2010, 2011, 2012 Victor Ren
 
-;; Time-stamp: <2012-09-05 09:49:55 Victor Ren>
+;; Time-stamp: <2013-10-21 16:15:25 Victor Ren>
 ;; Author: Victor Ren <victorhge@gmail.com>
 ;; Keywords: occurrence region simultaneous rectangle refactoring
 ;; Version: 0.97
@@ -53,7 +53,7 @@
 
 
 ;;; Default key bindings:
-(define-key global-map [C-return] 'iedit-rectangle-mode)
+(define-key ctl-x-r-map [return] 'iedit-rectangle-mode)
 
 (defvar iedit-rectangle nil
   "This buffer local variable which is the rectangle geometry if
@@ -81,7 +81,7 @@ current mode is iedit-rect. Otherwise it is nil.
              '(iedit-rectangle-mode . nil))
 
 ;;;###autoload
-(defun iedit-rectangle-mode ()
+(defun iedit-rectangle-mode (&optional beg end)
   "Toggle Iedit-rect mode.
 
 When Iedit-rect mode is on, a rectangle is started with visible
@@ -90,22 +90,28 @@ Iedit mechanism.
 
 Commands:
 \\{iedit-rect-keymap}"
-  (interactive)
+  (interactive (when (iedit-region-active)
+                 (list (region-beginning)
+                       (region-end))))
+
+  ;; enforce skip modification once, errors may happen to cause this to be
+  ;; unset.
+  (setq iedit-skip-modification-once t)
   (if iedit-rectangle-mode
       (iedit-rectangle-done)
     (iedit-barf-if-lib-active)
-    (if (iedit-region-active)
-        (let ((beg (region-beginning))
-              (end (region-end)))
-          (setq mark-active nil)
-          (run-hooks 'deactivate-mark-hook)
-          (iedit-rectangle-start beg end)))))
+    (if (and beg end)
+        (progn (setq mark-active nil)
+               (run-hooks 'deactivate-mark-hook)
+               (iedit-rectangle-start beg end))
+      (error "no region available."))))
 
 (defun iedit-rectangle-start (beg end)
   "Start Iedit mode for the region as a rectangle."
   (barf-if-buffer-read-only)
+  (setq beg (copy-marker beg))
+  (setq end (copy-marker end t))
   (setq iedit-occurrences-overlays nil)
-  (setq iedit-rectangle (list beg end))
   (setq iedit-initial-string-local nil)
   (setq iedit-occurrence-keymap iedit-rect-keymap)
   (save-excursion
@@ -114,21 +120,24 @@ Commands:
       (when (< end-col beg-col)
         (rotatef beg-col end-col))
       (goto-char beg)
-      (loop do (progn
-                 (push (iedit-make-occurrence-overlay
-                        (progn
-                          (move-to-column beg-col t)
-                          (point))
-                        (progn
-                          (move-to-column end-col t)
-                          (point)))
-                       iedit-occurrences-overlays)
-                 (forward-line 1))
-            until (> (point) end))
-      (setq iedit-occurrences-overlays (nreverse iedit-occurrences-overlays))))
-  (setq iedit-rectangle-mode (propertize
-                    (concat " Iedit-rect:" (number-to-string (length iedit-occurrences-overlays)))
-                    'face 'font-lock-warning-face))
+      (while
+          (progn
+            (push (iedit-make-occurrence-overlay
+                   (progn
+                     (move-to-column beg-col t)
+                     (point))
+                   (progn
+                     (move-to-column end-col t)
+                     (point)))
+                  iedit-occurrences-overlays)
+            (and (< (point) end) (forward-line 1))))))
+  (setq iedit-rectangle (list beg end))
+  (setq iedit-rectangle-mode
+        (propertize
+         (concat " Iedit-rect:"
+                 (number-to-string (length iedit-occurrences-overlays)))
+         'face
+         'font-lock-warning-face))
   (force-mode-line-update)
   (add-hook 'kbd-macro-termination-hook 'iedit-rectangle-done nil t)
   (add-hook 'change-major-mode-hook 'iedit-rectangle-done nil t)
@@ -153,11 +162,9 @@ The behavior is the same as `kill-rectangle' in rect mode."
   (interactive "*P")
   (or (and iedit-rectangle (iedit-same-column))
       (error "Not a rectangle"))
-  (let ((inhibit-modification-hooks t)
-        (beg (overlay-start (car iedit-occurrences-overlays)))
-        (end (overlay-end (progn (iedit-last-occurrence)
-                                 (iedit-find-current-occurrence-overlay)))))
-    (kill-rectangle beg end fill)))
+  (let ((inhibit-modification-hooks t))
+    (kill-rectangle (marker-position (car iedit-rectangle))
+                    (marker-position (cadr iedit-rectangle)) fill)))
 
 (provide 'iedit-rect)
 

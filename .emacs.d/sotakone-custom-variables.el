@@ -133,6 +133,12 @@
      (tool-bar-lines . 0)
      (unsplittable . t)
      (set-background-color "black"))))
+ '(sql-postgres-login-params
+   (quote
+    ((user :default "mlapshin")
+     server
+     (database :default "mlapshin")
+     port)))
  '(standard-indent 2)
  '(tab-stop-list (quote (2 4 6 8 10 12 14 16 18 20 22 24 26 28 30)))
  '(tab-width 2)

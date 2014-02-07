@@ -19,6 +19,9 @@
 
 (global-unset-key (kbd "C-x C-z"))
 
+(global-unset-key (kbd "C-x C-c"))
+(global-set-key (kbd "C-x C-c C-c") 'save-buffers-kill-terminal)
+
 (global-set-key (kbd "<f11>") 'linum-mode)
 
 (defvar stk-window-maximized-original-configuration nil)
