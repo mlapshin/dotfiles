@@ -16,8 +16,13 @@
   (interactive)
   (setq show-trailing-whitespace (not show-trailing-whitespace)))
 
-(add-hook 'comint-mode-hook (lambda ()
-                                 (toggle-show-trailing-whitespace)))
+(eval-after-load 'comint
+  '(progn
+     (message "hello from comint mode")
+     (define-key comint-mode-map (kbd "C-M-l") 'windmove-right)
 
-(add-hook 'term-mode-hook (lambda ()
-                              (toggle-show-trailing-whitespace)))
+     (add-hook 'comint-mode-hook (lambda ()
+                                   (toggle-show-trailing-whitespace)))
+
+     (add-hook 'term-mode-hook (lambda ()
+                                 (toggle-show-trailing-whitespace)))))
