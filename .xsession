@@ -24,7 +24,11 @@ else
   dropbox start
 fi
 
-btsync --config ~/.config/btsync/btsync.conf
+if [ $HOSTNAME = "rusty" ]; then
+    btsync --config ~/.config/btsync/btsync.conf
+else
+    /usr/lib/btsync/btsync-daemon --config btsync.conf
+fi
 
 # disable x screen blanking
 xset s 0
