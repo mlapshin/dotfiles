@@ -18,7 +18,6 @@
 
 (eval-after-load 'comint
   '(progn
-     (message "hello from comint mode")
      (define-key comint-mode-map (kbd "C-M-l") 'windmove-right)
 
      (add-hook 'comint-mode-hook (lambda ()
