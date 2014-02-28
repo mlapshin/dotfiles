@@ -1,4 +1,4 @@
-(eval-after-load "sql-mode"
+(eval-after-load 'sql
   '(progn
      (define-key sql-mode-map (kbd "C-c C-e") (lambda ()
                                                 (interactive)

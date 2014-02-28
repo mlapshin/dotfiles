@@ -11,3 +11,5 @@ if [ $HOSTNAME = "rusty" ]; then
     eval "$(rbenv init -)"
     eval $(ssh-agent)
 fi
+
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM

@@ -88,4 +88,5 @@
    ""
    str))
 
-(global-set-key (kbd "C-c C-e") 'erise)
+;; (global-set-key (kbd "C-c C-e") 'erise)
+(global-unset-key (kbd "C-c C-e"))
