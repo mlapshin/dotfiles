@@ -5,3 +5,5 @@
       (occur (if isearch-regexp
                  isearch-string
                (regexp-quote isearch-string))))))
+
+(global-set-key (kbd "M-%") 'query-replace-regexp)
