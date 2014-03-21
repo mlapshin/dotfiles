@@ -41,7 +41,8 @@ URxvt.keysym.C-y: builtin:
 URxvt.keysym.C-A-y: builtin:
 URxvt.keysym.M-u: builtin:
 URxvt.keysym.M-Escape: builtin:
-URxvt.keysym.M-s: builtin:
+URxvt.keysym.M-s: \033<M-s>
+URxvt*iso14755: False
 
 Xft.dpi: 96
 Xft.antialias: true

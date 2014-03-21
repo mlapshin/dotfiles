@@ -13,7 +13,8 @@
  '(ac-menu-height 30)
  '(ac-modes
    (quote
-    (lua-mode haml-mode emacs-lisp-mode lisp-interaction-mode c-mode cc-mode c++-mode clojure-mode java-mode perl-mode cperl-mode python-mode ruby-mode ecmascript-mode espresso-mode php-mode css-mode makefile-mode sh-mode fortran-mode f90-mode ada-mode xml-mode sgml-mode nrepl-mode sql-mode sqli-mode)))
+    (lua-mode haml-mode emacs-lisp-mode lisp-interaction-mode c-mode cc-mode c++-mode clojure-mode java-mode perl-mode cperl-mode python-mode ruby-mode ecmascript-mode espresso-mode php-mode css-mode makefile-mode sh-mode fortran-mode f90-mode ada-mode xml-mode sgml-mode sql-mode sqli-mode clojure-mode cider-repl-mode)))
+ '(ac-quick-help-delay 0.5)
  '(ac-show-menu-immediately-on-auto-complete t)
  '(ac-stop-words (quote ("begin" "if" "else" "end" "do")))
  '(ac-trigger-key "TAB")
@@ -31,12 +32,16 @@
     (brace-else-brace brace-elseif-brace brace-catch-brace empty-defun-braces one-liner-defun defun-close-semi list-close-comma scope-operator compact-empty-funcall comment-close-slash)))
  '(c-strict-syntax-p t)
  '(calendar-week-start-day 1)
+ '(clojure-defun-style-default-indent t)
  '(coffee-tab-width 2)
  '(color-theme-is-cumulative nil)
  '(command-t-ctmatch-path "~/bin/ctmatch")
  '(compilation-window-height 15)
  '(css-electric-keys (quote (125 59 41)))
  '(css-indent-offset 2)
+ '(custom-safe-themes
+   (quote
+    ("1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" default)))
  '(delete-selection-mode t)
  '(dired-single-magic-buffer-name "*dired-single*")
  '(ecb-options-version "2.32")
@@ -123,6 +128,7 @@
  '(scroll-bar-mode nil)
  '(scroll-margin 2)
  '(show-paren-mode t)
+ '(show-smartparens-global-mode t)
  '(show-trailing-whitespace t)
  '(smooth-scroll-margin 3)
  '(smooth-scroll-mode t)
@@ -151,6 +157,7 @@
  '(whitespace-style
    (quote
     (tabs trailing space-before-tab space-after-tab tab-mark)))
+ '(window-numbering-mode t)
  '(x-select-enable-clipboard t))
 
 (custom-set-faces
@@ -169,4 +176,6 @@
  '(rainbow-delimiters-depth-7-face ((t (:foreground "brightyellow"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "brightgreen"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "color-250"))))
- '(rainbow-delimiters-unmatched-face ((t (:foreground "red")))))
+ '(rainbow-delimiters-unmatched-face ((t (:foreground "red"))))
+ '(sp-pair-overlay-face ((t (:background "color-237"))))
+ '(window-numbering-face ((t (:background "red" :foreground "brightwhite"))) t))

@@ -36,8 +36,11 @@
 (depends-on "etags-select")
 (depends-on "starter-kit")
 
+;; clojure
 (depends-on "clojure-mode")
+(depends-on "cider")
 (depends-on "ac-nrepl")
 (depends-on "clojure-test-mode")
-
+(depends-on "smartparens")
 (depends-on "rainbow-delimiters")
+(depends-on "key-chord")

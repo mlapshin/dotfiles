@@ -1,3 +1,5 @@
+(require 'window-numbering)
+
 (defun smart-beginning-of-line ()
   (interactive)
 
@@ -45,10 +47,10 @@
 (global-set-key (kbd "M-Л") (lambda () (interactive) (previous-line 5)))
 
 ;; Windows navigation
-(global-set-key (kbd "C-M-h") 'windmove-left) ; move to left windnow
-(global-set-key (kbd "C-M-l") 'windmove-right) ; move to right window
-(global-set-key (kbd "C-M-k") 'windmove-up) ; move to upper window
-(global-set-key (kbd "C-M-j") 'windmove-down) ; move to downer window
+;; (global-set-key (kbd "C-M-h") 'windmove-left) ; move to left windnow
+;; (global-set-key (kbd "C-M-l") 'windmove-right) ; move to right window
+;; (global-set-key (kbd "C-M-k") 'windmove-up) ; move to upper window
+;; (global-set-key (kbd "C-M-j") 'windmove-down) ; move to downer window
 
 (add-hook 'c-mode-hook 'stk-unset-hjkl-keys)
 (add-hook 'c++-mode-hook 'stk-unset-hjkl-keys)
@@ -56,7 +58,6 @@
 (add-hook 'ibuffer-mode-hook 'stk-unset-hjkl-keys)
 (add-hook 'magit-mode-hook 'stk-unset-hjkl-keys)
 (add-hook 'nxml-mode-hook 'stk-unset-hjkl-keys)
-
 
 (require 'grizzl)
 (global-set-key (kbd "C-x p") 'projectile-find-file)
