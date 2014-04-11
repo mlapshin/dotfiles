@@ -41,7 +41,7 @@
  '(css-indent-offset 2)
  '(custom-safe-themes
    (quote
-    ("1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" default)))
+    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" default)))
  '(delete-selection-mode t)
  '(dired-single-magic-buffer-name "*dired-single*")
  '(ecb-options-version "2.32")
@@ -89,9 +89,13 @@
  '(org-agenda-files (quote ("/home/sotakone/default.org")))
  '(org-log-done "time")
  '(popwin-mode t)
+ '(popwin:reuse-window nil)
  '(popwin:special-display-config
    (quote
-    (("*rspec-compilation*" :regexp nil :noselect t :stick t :tail t)
+    (("*cider-doc*" :regexp nil)
+     ("*cider-macroexpansion*" :regexp nil)
+     ("*cider-error*" :regexp nil)
+     ("*rspec-compilation*" :regexp nil :noselect t :stick t :tail t)
      (help-mode)
      (completion-list-mode :noselect t)
      (compilation-mode :noselect t :tail t)
@@ -132,6 +136,7 @@
  '(show-trailing-whitespace t)
  '(smooth-scroll-margin 3)
  '(smooth-scroll-mode t)
+ '(solarized-italic nil)
  '(speedbar-frame-parameters
    (quote
     ((minibuffer)
@@ -159,23 +164,17 @@
     (tabs trailing space-before-tab space-after-tab tab-mark)))
  '(window-numbering-mode t)
  '(x-select-enable-clipboard t))
-
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-etags-candidate-face ((t (:background "light gray" :foreground "black" :weight bold))))
- '(ac-etags-selection-face ((t (:background "dark magenta" :foreground "white" :weight bold))))
- '(rainbow-delimiters-depth-1-face ((t (:foreground "brightwhite"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "brightwhite"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "color-40"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "color-39"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "brightmagenta"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "brightcyan"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "brightyellow"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "brightgreen"))))
- '(rainbow-delimiters-depth-9-face ((t (:foreground "color-250"))))
- '(rainbow-delimiters-unmatched-face ((t (:foreground "red"))))
- '(sp-pair-overlay-face ((t (:background "color-237"))))
- '(window-numbering-face ((t (:background "red" :foreground "brightwhite"))) t))
+ '(cider-repl-output-face ((t (:inherit default))))
+ '(highlight ((t (:background "#e4e4e4"))))
+ '(idle-highlight ((t (:inherit highlight))))
+ '(popup-face ((t (:background "white" :foreground "black"))))
+ '(popup-tip-face ((t (:background "black" :foreground "default"))))
+ '(sp-pair-overlay-face ((t (:background "black"))))
+ '(sp-show-pair-match-face ((t (:background "black"))))
+ '(sp-show-pair-mismatch-face ((t (:background "red" :foreground "black"))))
+ '(window-numbering-face ((t (:background "black" :foreground "red"))) t))

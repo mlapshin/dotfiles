@@ -1,4 +1,5 @@
 (require 'ac-nrepl)
+(require 'midje-mode)
 (require 'smartparens-config)
 
 (define-key emacs-lisp-mode-map (kbd "<f5>") (lambda ()
@@ -12,11 +13,22 @@
     (with-current-buffer standard-output
       (emacs-lisp-mode))))
 
+(defun cider-repl-reset ()
+  (interactive)
+  (cider-ensure-connected)
+  (save-some-buffers)
+  (set-buffer (cider-find-or-create-repl-buffer))
+  (goto-char (point-max))
+  (insert "(user/reset)")
+  (cider-repl-return))
+
 (defun trun-on-smartparens-mode ()
   (smartparens-mode t)
   (smartparens-strict-mode t))
 
 (add-hook 'clojure-mode-hook 'trun-on-smartparens-mode)
+(add-hook 'clojure-mode-hook 'midje-mode)
+
 (add-hook 'emacs-lisp-mode-hook 'trun-on-smartparens-mode)
 (add-hook 'lisp-interaction-mode-hook 'trun-on-smartparens-mode)
 
@@ -32,6 +44,7 @@
 (add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
 (define-key sp-keymap (kbd "C-M-k") 'sp-kill-sexp)
+(define-key sp-keymap (kbd "M-(") (lambda () (interactive) (insert-parentheses 1))) ;; like paredit
 (define-key sp-keymap (kbd "C-M-w") 'sp-copy-sexp)
 (define-key sp-keymap (kbd "ESC <deletechar>") 'sp-unwrap-sexp) ;; M-delete
 
@@ -42,3 +55,6 @@
 (define-key sp-keymap (kbd "C-M-h") 'sp-add-to-next-sexp)
 (define-key sp-keymap (kbd "C-c j") 'sp-join-sexp)
 (define-key sp-keymap (kbd "C-c s") 'sp-split-sexp)
+
+(define-key cider-mode-map (kbd "C-c r") 'cider-repl-reset)
+(define-key cider-repl-mode-map (kbd "C-c r") 'cider-repl-reset)

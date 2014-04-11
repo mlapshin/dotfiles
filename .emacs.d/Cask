@@ -41,6 +41,9 @@
 (depends-on "cider")
 (depends-on "ac-nrepl")
 (depends-on "clojure-test-mode")
+(depends-on "midje-mode")
 (depends-on "smartparens")
 (depends-on "rainbow-delimiters")
 (depends-on "key-chord")
+
+(depends-on "solarized-theme")

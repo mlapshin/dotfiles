@@ -1,10 +1,9 @@
 (require 'color-theme)
-(require 'color-theme-cool-dark)
 (require 'maxframe)
 (require 'smooth-scrolling)
 (require 'popwin)
 
-(color-theme-cool-dark)
+(load-theme 'solarized-light t)
 (set-cursor-color "#0f0")
 
 (add-hook 'window-setup-hook 'maximize-frame t)
