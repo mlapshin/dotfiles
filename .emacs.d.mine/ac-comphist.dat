@@ -1,0 +1,268 @@
+((("window-numbering-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("color-theme-solarized-light" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0])
+  ("color-themes" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("bench_json_patients" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("data_without_containeds" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("data_with_containeds" .
+   [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0])
+  ("comint-mode-map" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("progn" .
+   [1 0 0 0 0])
+  ("eval-after-load" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 1])
+  ("info" .
+   [0 0 0 1])
+  ("prog-mode-hook" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("evd_vocab_type_desc" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("find_fdb_replacements" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("vocab_type_desc" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("DISCARDED_DATA" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("lower_range" .
+   [0 0 0 0 0 1 0 0 0 0 0])
+  ("path_components" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("duplicate-current-line" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("control_daemon" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 1])
+  ("extension" .
+   [0 0 0 0 1 0 0 1 0])
+  ("extension_node" .
+   [0 0 0 0 1 1 1 0 0 0 0 0 0 0])
+  ("restriction_node" .
+   [0 0 0 2 0 1 1 0 0 0 0 0 0 0 0 0])
+  ("restriction" .
+   [0 0 0 0 0 0 1 0 0 0 1])
+  ("add_column" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("smooth-scrolling" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("idle-highlight-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("idle-highlight-" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("ruby-mode-expansions" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("time_select_widget" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("ffip-find-options" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("backspace" .
+   [1 0 0 0 0 0 0 0 0])
+  ("rspec-mode" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("old_allergy" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("attributes" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("find_allergy" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("initial_allergies" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("initialize" .
+   [0 0 0 0 0 1 0 0 0 1])
+  ("get_current_allergies" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("private" .
+   [1 0 0 0 0 0 0])
+  ("protected" .
+   [1 0 0 0 0 0 0 0 0])
+  ("attr" .
+   [2 0 0 0])
+  ("map" .
+   [1 0 0])
+  ("new" .
+   [1 0 0])
+  ("uuid" .
+   [1 0 0 0])
+  ("IGNORE_CHANGES_ON" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("present?" .
+   [1 0 0 0 0 0 0 0])
+  ("changed_attributes" .
+   [1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("action" .
+   [1 0 0 0 0 0])
+  ("allergy" .
+   [2 0 0 0 0 0 0])
+  ("agent_label" .
+   [3 0 0 0 0 0 0 0 0 0 0])
+  ("add" .
+   [3 0 0])
+  ("update" .
+   [4 0 0 0 0 0])
+  ("be_nil" .
+   [1 0 0 0 0 0])
+  ("delete_change" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("delete" .
+   [2 0 1 0 0 0])
+  ("first" .
+   [1 0 0 0 0])
+  ("doctor" .
+   [0 0 0 0 0 1])
+  ("size" .
+   [1 0 0 0])
+  ("morphine" .
+   [2 0 0 0 0 0 0 0])
+  ("delete_allergy" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("diarrhea" .
+   [0 0 0 0 0 0 0 2])
+  ("reaction" .
+   [2 0 0 0 0 0 0 0])
+  ("update_allergy" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("Oak" .
+   [4 0 0])
+  ("review" .
+   [8 0 0 0 0 0])
+  ("complete_review" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+  ("document" .
+   [1 0 0 0 0 0 0 0])
+  ("verdugo" .
+   [1 0 0 0 0 0 0])
+  ("ruby-block-highlight-toggle" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("magit-mode-map" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("global-unset-key" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("defun" .
+   [2 0 0 0 0])
+  ("args" .
+   [1 0 0 0])
+  ("inspect" .
+   [4 0 0 0 0 0 0])
+  ("to_hash" .
+   [0 0 0 0 0 0 1])
+  ("port" .
+   [0 0 0 1])
+  ("replSet" .
+   [0 0 0 0 1 0 0])
+  ("system" .
+   [0 0 0 0 0 1])
+  ("com" .
+   [1 0 0])
+  ("pem" .
+   [2 0 0])
+  ("chef" .
+   [1 0 0 0])
+  ("mongodb" .
+   [1 0 0 0 0 0 0])
+  ("nil" .
+   [4 0 0])
+  ("current-local-map" .
+   [3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("stk-unset-hjkl-keys" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 3])
+  ("ruby-end" .
+   [0 0 0 0 0 0 0 1])
+  ("ruby-mode-hook" .
+   [3 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("add-hook" .
+   [1 0 0 0 0 0 0 0])
+  ("paredit" .
+   [1 0 0 0 0 0 0])
+  ("ibuffer" .
+   [1 0 0 0 0 0 0])
+  ("magit" .
+   [1 0 0 0 0])
+  ("standby_clusters_with_backups" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("backup_databases" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("user" .
+   [2 0 0 0])
+  ("attrs" .
+   [3 0 0 0 0])
+  ("db" .
+   [2 0])
+  ("_backup_ok" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("utc" .
+   [1 0 0])
+  ("cluster_name" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("delete-backward-char" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("ffip" .
+   [1 0 0 0])
+  ("ffip-limit" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("iedit-mode" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("newline" .
+   [2 0 0 0 0 0 0])
+  ("date_select_widget" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("newline-and-indent" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("undefined" .
+   [0 0 0 0 0 0 0 0 1])
+  ("node_name" .
+   [0 0 0 0 1 0 0 0 0])
+  ("complexAbstractCount" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("argumentDatatype" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("datatypeModelLibrary" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("specialized_name" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("parameters" .
+   [0 0 0 0 0 0 1 0 0 0])
+  ("parent_class" .
+   [0 0 0 0 0 2 0 0 0 0 0 0])
+  ("child_classes" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("build_tree_func" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("classes_tree" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("parent_class_instance" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1])
+  ("all_attributes" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("associations" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("VagrantHelper" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("Matchers" .
+   [0 0 1 0 0 0 0 0])
+  ("MatcherMethods" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("actual_content" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 3])
+  ("actual_owner" .
+   [0 0 0 0 1 0 0 0 0 0 0 0])
+  ("ruby-toggle-hash-syntax" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("projectile-global-on" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("new-project-path" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("attrName" .
+   [0 0 0 0 0 0 0 1])
+  ("attrVal" .
+   [0 0 0 0 0 0 1])
+  ("switch-window" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("key-chord-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("lisp-mode-hook" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("lisp-interaction-mode-hook" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])))
