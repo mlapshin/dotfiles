@@ -47,3 +47,4 @@
 (depends-on "key-chord")
 
 (depends-on "solarized-theme")
+(depends-on "undo-tree")

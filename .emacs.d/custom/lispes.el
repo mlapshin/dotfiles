@@ -55,6 +55,7 @@
 (define-key sp-keymap (kbd "C-M-h") 'sp-add-to-next-sexp)
 (define-key sp-keymap (kbd "C-c j") 'sp-join-sexp)
 (define-key sp-keymap (kbd "C-c s") 'sp-split-sexp)
+(define-key sp-keymap (kbd "C-c d") 'sp-splice-sexp-killing-around)
 
 (define-key cider-mode-map (kbd "C-c r") 'cider-repl-reset)
 (define-key cider-repl-mode-map (kbd "C-c r") 'cider-repl-reset)

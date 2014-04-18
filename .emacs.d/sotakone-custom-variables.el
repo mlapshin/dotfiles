@@ -136,7 +136,7 @@
  '(show-trailing-whitespace t)
  '(smooth-scroll-margin 3)
  '(smooth-scroll-mode t)
- '(solarized-italic nil)
+ '(solarized-italic t)
  '(speedbar-frame-parameters
    (quote
     ((minibuffer)
@@ -169,9 +169,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ace-jump-face-background ((t (:foreground "color-250" :inverse-video nil :underline nil :slant normal :weight normal))))
  '(cider-repl-output-face ((t (:inherit default))))
  '(highlight ((t (:background "#e4e4e4"))))
  '(idle-highlight ((t (:inherit highlight))))
+ '(isearch-fail ((t (:foreground "red" :inverse-video t :underline nil :slant normal :weight normal))))
+ '(lazy-highlight ((t (:background "black" :foreground "#af8700" :inverse-video nil :underline nil :slant normal :weight normal))))
  '(popup-face ((t (:background "white" :foreground "black"))))
  '(popup-tip-face ((t (:background "black" :foreground "default"))))
  '(sp-pair-overlay-face ((t (:background "black"))))
