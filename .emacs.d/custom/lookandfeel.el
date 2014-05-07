@@ -3,7 +3,8 @@
 (require 'smooth-scrolling)
 (require 'popwin)
 
-(load-theme 'solarized-light t)
+;; (add-to-list 'custom-theme-load-path "~/.emacs.d/vendor")
+;; (load-theme 'ample-light t)
 (set-cursor-color "#0f0")
 
 (add-hook 'window-setup-hook 'maximize-frame t)

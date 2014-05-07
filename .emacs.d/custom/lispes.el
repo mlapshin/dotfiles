@@ -1,6 +1,6 @@
 (require 'ac-nrepl)
-(require 'midje-mode)
 (require 'smartparens-config)
+(require 'cider-mode)
 
 (define-key emacs-lisp-mode-map (kbd "<f5>") (lambda ()
                                                (interactive)
@@ -27,13 +27,13 @@
   (smartparens-strict-mode t))
 
 (add-hook 'clojure-mode-hook 'trun-on-smartparens-mode)
-(add-hook 'clojure-mode-hook 'midje-mode)
 
 (add-hook 'emacs-lisp-mode-hook 'trun-on-smartparens-mode)
 (add-hook 'lisp-interaction-mode-hook 'trun-on-smartparens-mode)
 
 (add-hook 'cider-repl-mode-hook
           (lambda ()
+            (define-key cider-repl-mode-map (kbd "C-c r") 'cider-repl-reset)
             (turn-on-smartparens-mode)
             (auto-complete-mode t)))
 
@@ -58,4 +58,3 @@
 (define-key sp-keymap (kbd "C-c d") 'sp-splice-sexp-killing-around)
 
 (define-key cider-mode-map (kbd "C-c r") 'cider-repl-reset)
-(define-key cider-repl-mode-map (kbd "C-c r") 'cider-repl-reset)
