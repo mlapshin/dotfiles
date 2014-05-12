@@ -9,8 +9,8 @@
 (define-key global-map (kbd "C-x C-r") 'rgrep)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-x C-w") 'whitespace-cleanup)
 
+(global-set-key (kbd "C-x C-w") 'whitespace-cleanup)
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 (global-set-key (kbd "C-x j") 'join-line)
 (global-set-key (kbd "C-x t") 'transpose-lines)
@@ -18,7 +18,6 @@
 (global-set-key (kbd "<f5>") 'compile)
 
 (global-unset-key (kbd "C-x C-z"))
-
 (global-unset-key (kbd "C-x C-c"))
 (global-set-key (kbd "C-x C-c C-c") 'save-buffers-kill-terminal)
 

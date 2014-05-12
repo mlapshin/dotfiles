@@ -1,0 +1,1 @@
+(disable-theme 'zenburn)
