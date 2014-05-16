@@ -1,6 +1,8 @@
 (prelude-require-package 'ac-nrepl)
 (require 'ac-nrepl)
 
+(setq clojure-defun-style-default-indent t)
+
 (defun cider-repl-reset ()
   (interactive)
   (cider-ensure-connected)

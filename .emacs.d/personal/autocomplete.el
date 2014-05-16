@@ -28,3 +28,7 @@
   (setq completion-at-point-functions '(auto-complete)))
 
 (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+
+(setq ac-modes
+      (append '(comint-mode css-mode less-css-mode coffee-mode)
+              ac-modes))

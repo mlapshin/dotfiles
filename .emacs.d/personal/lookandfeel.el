@@ -41,6 +41,10 @@
                       :weight 'bold)
 
   (set-face-foreground 'sp-show-pair-match-face "white")
+  (set-face-attribute 'whitespace-tab nil
+                      :inherit nil
+                      :background "white"
+                      :foreground 'unspecified)
 
   (dolist (face '(whitespace-empty whitespace-hspace))
     (set-face-attribute face nil :background 'unspecified)))

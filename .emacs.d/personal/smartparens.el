@@ -12,3 +12,6 @@
 (define-key sp-keymap (kbd "C-c j") 'sp-join-sexp)
 (define-key sp-keymap (kbd "C-c s") 'sp-split-sexp)
 (define-key sp-keymap (kbd "C-c d") 'sp-splice-sexp-killing-around)
+
+(define-key sp-keymap (kbd "C-M-a") 'sp-beginning-of-sexp)
+(define-key sp-keymap (kbd "C-M-e") 'sp-end-of-sexp)
