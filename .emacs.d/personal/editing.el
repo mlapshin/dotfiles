@@ -48,3 +48,10 @@ BEG and END (region to sort)."
 
 (delete-selection-mode t)    ;; replace region with new content
 (setq shift-select-mode nil) ;; disable selection on SHIFT
+
+(defadvice kill-line (before check-position activate)
+  "Call `just-one-space' after `kill-line'."
+  (if (and (eolp) (not (bolp)))
+      (progn (forward-char 1)
+             (just-one-space 0)
+             (backward-char 1))))
