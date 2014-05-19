@@ -55,3 +55,11 @@ BEG and END (region to sort)."
       (progn (forward-char 1)
              (just-one-space 0)
              (backward-char 1))))
+
+(defun yank-and-indent ()
+  "Yank and then indent the newly formed region according to mode."
+  (interactive)
+  (yank)
+  (call-interactively 'indent-region))
+
+(global-set-key (kbd "C-y") 'yank-and-indent)
