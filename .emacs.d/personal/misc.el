@@ -5,3 +5,5 @@
 (setq dired-enable-local-variables :all)
 
 (global-set-key (kbd "C-x C-g") 'magit-status)
+
+(global-unset-key (kbd "C-p"))
