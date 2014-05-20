@@ -1,6 +1,9 @@
 (prelude-require-packages '(moe-theme
                             powerline
+                            flx
                             smooth-scroll))
+
+(require 'flx) ;; fix: missing face flx-highlight-face on mac os
 
 ;;(require 'powerline)
 (require 'moe-theme)
@@ -15,6 +18,10 @@
 
 (setq smooth-scroll-mode t)
 (setq smooth-scroll-margin 3)
+
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
 
 (defun ml-customize-faces ()
   (dolist (face '(font-lock-keyword-face))
@@ -54,9 +61,9 @@
   (setq moe-theme-mode-line-color 'blue)
 
   ;; use background color from xresources only for term
-  (unless window-system
-    (set-face-background 'default "color8")
-    (set-background-color "color8"))
+  ;; (unless window-system
+  ;;   (set-face-background 'default "color8")
+  ;;   (set-background-color "color8"))
 
   (moe-light))
 

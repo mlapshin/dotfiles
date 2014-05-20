@@ -1,1 +1,1 @@
-;; (setq projectile-completion-system 'grizzl)
+(setq projectile-completion-system 'grizzl)

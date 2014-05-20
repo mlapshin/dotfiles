@@ -1,5 +1,4 @@
-;; (prelude-require-package 'auto-complete)
-;; auto-complete-mode is vendored for now
+(prelude-require-package 'auto-complete)
 
 (require 'auto-complete)
 (require 'auto-complete-config)
