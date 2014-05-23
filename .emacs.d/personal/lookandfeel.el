@@ -59,6 +59,7 @@
 (defun ml-light-theme ()
   (setq moe-theme-highlight-buffer-id nil)
   (setq moe-theme-mode-line-color 'blue)
+  (setq moe-light-pure-white-background-in-terminal t)
 
   ;; use background color from xresources only for term
   ;; (unless window-system

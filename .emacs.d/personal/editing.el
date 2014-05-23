@@ -46,8 +46,8 @@ BEG and END (region to sort)."
 
 (global-set-key (kbd "M-RET") 'prelude-duplicate-current-line-or-region)
 
-(delete-selection-mode t)    ;; replace region with new content
-(setq shift-select-mode nil) ;; disable selection on SHIFT
+(delete-selection-mode +1)    ;; replace region with new content
+(setq shift-select-mode -1) ;; disable selection with SHIFT
 
 (defadvice kill-line (before check-position activate)
   "Call `just-one-space' after `kill-line'."
@@ -59,6 +59,11 @@ BEG and END (region to sort)."
 (defun yank-and-indent ()
   "Yank and then indent the newly formed region according to mode."
   (interactive)
+
+  ;; delete active region if any
+
+  (when (region-active-p)
+    (delete-region (region-beginning) (region-end)))
   (yank)
   (call-interactively 'indent-region))
 
