@@ -3,7 +3,7 @@
 ;; http://www.vergenet.net/~conrad/software/xsel/ -- "a command-line
 ;; program for getting and setting the contents of the X selection"
 (unless window-system
-  (when (getenv "DISPLAY")
+  (when (and (getenv "DISPLAY") (eq system-type 'gnu/linux))
     ;; Callback for when user cuts
     (defun xsel-cut-function (text &optional push)
       ;; Insert text to temp-buffer, and "send" content to xsel stdin
