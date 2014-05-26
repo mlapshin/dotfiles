@@ -40,3 +40,8 @@
             (define-key ido-completion-map (kbd "M-h") 'ido-prev-match)
             (define-key ido-completion-map (kbd "M-j") 'ido-next-match)
             (define-key ido-completion-map (kbd "M-k") 'ido-prev-match)))
+
+(eval-after-load 'browse-kill-ring
+  '(progn
+     (define-key browse-kill-ring-mode-map (kbd "M-j") 'browse-kill-ring-forward)
+     (define-key browse-kill-ring-mode-map (kbd "M-k") 'browse-kill-ring-previous)))
