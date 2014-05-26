@@ -6,4 +6,4 @@
 
 (global-set-key (kbd "C-x C-g") 'magit-status)
 
-(global-unset-key (kbd "C-p"))
+;; (global-unset-key (kbd "C-x C-p"))
