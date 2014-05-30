@@ -1,4 +1,10 @@
+(prelude-require-package 'multiple-cursors)
+(require 'multiple-cursors)
 (set-default 'truncate-lines nil)
+
+(global-set-key (kbd "C-c >") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-c <") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c .") 'mc/mark-all-dwim)
 
 (defun ml-move-line-up ()
   "Move the current line up."

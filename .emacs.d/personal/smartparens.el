@@ -15,3 +15,7 @@
 
 (define-key sp-keymap (kbd "C-M-a") 'sp-beginning-of-sexp)
 (define-key sp-keymap (kbd "C-M-e") 'sp-end-of-sexp)
+
+(define-key sp-keymap (kbd "M-{") (lambda ()
+                                    (interactive)
+                                    (sp-wrap-with-pair "[")))

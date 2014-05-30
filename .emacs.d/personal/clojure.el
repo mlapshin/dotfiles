@@ -1,16 +1,9 @@
-(prelude-require-package 'ac-nrepl)
+(prelude-require-packages '(ac-nrepl align-cljlet))
 (require 'ac-nrepl)
+(require 'align-cljlet)
 
-(setq clojure-defun-style-default-indent t)
-
-(defun cider-repl-reset ()
-  (interactive)
-  (cider-ensure-connected)
-  (save-some-buffers)
-  (set-buffer (cider-find-or-create-repl-buffer))
-  (goto-char (point-max))
-  (insert "(user/reset)")
-  (cider-repl-return))
+(setq clojure-defun-style-default-indent nil
+      lisp-indent-offset nil)
 
 (defun cider-repl-reset ()
   (interactive)

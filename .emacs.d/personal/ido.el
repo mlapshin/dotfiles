@@ -1,2 +1,3 @@
-(setq ido-everywhere t)
-(setq ido-show-dot-for-dired t)
+(setq ido-everywhere t
+      ido-show-dot-for-dired t
+      ido-use-filename-at-point nil)

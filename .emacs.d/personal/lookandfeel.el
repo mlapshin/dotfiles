@@ -13,11 +13,10 @@
 (require 'window-numbering)
 (window-numbering-mode t)
 
-;; turn off hl line mode
-(setq global-hl-line-mode nil)
-
-(setq smooth-scroll-mode t)
-(setq smooth-scroll-margin 3)
+(setq global-hl-line-mode nil
+      smooth-scroll-mode t
+      smooth-scroll-margin 3
+      visible-bell t)
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -61,13 +60,15 @@
   (setq moe-theme-mode-line-color 'blue)
   (setq moe-light-pure-white-background-in-terminal t)
 
-  ;; use background color from xresources only for term
-  ;; (unless window-system
-  ;;   (set-face-background 'default "color8")
-  ;;   (set-background-color "color8"))
-
   (moe-light))
 
 (ml-light-theme)
 
 (add-hook 'after-init-hook 'ml-customize-faces)
+
+;; use only one desktop
+;; (setq desktop-path '("~/.emacs.d/")
+;;       desktop-dirname "~/.emacs.d/"
+;;       desktop-restore-eager 0)
+
+;; (desktop-save-mode +1)
