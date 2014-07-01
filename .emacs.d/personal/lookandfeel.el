@@ -35,17 +35,6 @@
                       :foreground 'unspecified
                       :background "#dadada")
 
-  (set-face-attribute 'ac-candidate-face nil
-                      :background "#d7d7af"
-                      :foreground 'unspecified
-                      :weight 'unspecified)
-
-  (set-face-attribute 'ac-selection-face nil
-                      :inherit nil
-                      :background "#ffff87"
-                      :foreground 'unspecified
-                      :weight 'bold)
-
   (set-face-foreground 'sp-show-pair-match-face "white")
   (set-face-attribute 'whitespace-tab nil
                       :inherit nil
