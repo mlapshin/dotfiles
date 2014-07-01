@@ -45,3 +45,10 @@
   '(progn
      (define-key browse-kill-ring-mode-map (kbd "M-j") 'browse-kill-ring-forward)
      (define-key browse-kill-ring-mode-map (kbd "M-k") 'browse-kill-ring-previous)))
+
+(eval-after-load 'grizzl-read
+  '(progn
+     (define-key *grizzl-keymap* (kbd "M-k") 'grizzl-set-selection+1)
+     (define-key *grizzl-keymap* (kbd "M-K") (lambda () (interactive) (grizzl-move-selection +5)))
+     (define-key *grizzl-keymap* (kbd "M-j") 'grizzl-set-selection-1)
+     (define-key *grizzl-keymap* (kbd "M-J") (lambda () (interactive) (grizzl-move-selection -5)))))
