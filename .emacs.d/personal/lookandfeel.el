@@ -16,7 +16,7 @@
 (setq global-hl-line-mode nil
       smooth-scroll-mode t
       smooth-scroll-margin 3
-      visible-bell t)
+      visible-bell nil)
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -27,7 +27,7 @@
     (set-face-attribute face nil :weight 'bold))
 
   (set-face-attribute 'window-numbering-face nil :foreground "black" :weight 'bold)
-  (set-face-background 'mode-line-buffer-id 'unspecified)
+  ;;(set-face-background 'mode-line-buffer-id 'unspecified)
   (set-face-attribute 'flx-highlight-face nil :inherit 'highlight :underline nil)
   (set-face-attribute 'flycheck-warning nil :inherit 'unspecified)
 
