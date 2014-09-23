@@ -5,7 +5,7 @@
 
 (require 'flx) ;; fix: missing face flx-highlight-face on mac os
 
-;;(require 'powerline)
+(require 'powerline)
 (require 'moe-theme)
 (require 'smooth-scroll)
 
@@ -27,37 +27,48 @@
     (set-face-attribute face nil :weight 'bold))
 
   (set-face-attribute 'window-numbering-face nil :foreground "black" :weight 'bold)
-  ;;(set-face-background 'mode-line-buffer-id 'unspecified)
   (set-face-attribute 'flx-highlight-face nil :inherit 'highlight :underline nil)
   (set-face-attribute 'flycheck-warning nil :inherit 'unspecified)
+
+  (dolist (face '(whitespace-empty whitespace-hspace))
+    (set-face-attribute face nil :background 'unspecified)))
+
+(defun ml-customizations-for-window-system ()
+  (require 'powerline)
+  (powerline-default-theme)
+  (set-face-attribute 'default nil :height 135))
+
+(defun ml-light-theme ()
+  (interactive)
+  (setq moe-theme-highlight-buffer-id nil)
+  (setq moe-theme-mode-line-color 'blue)
+  (setq moe-light-pure-white-background-in-terminal t)
 
   (set-face-attribute 'whitespace-line nil
                       :foreground 'unspecified
                       :background "#dadada")
 
   (set-face-foreground 'sp-show-pair-match-face "white")
+
   (set-face-attribute 'whitespace-tab nil
                       :inherit nil
                       :background "white"
                       :foreground 'unspecified)
 
-  (dolist (face '(whitespace-empty whitespace-hspace))
-    (set-face-attribute face nil :background 'unspecified)))
-
-(defun ml-light-theme ()
-  (setq moe-theme-highlight-buffer-id nil)
-  (setq moe-theme-mode-line-color 'blue)
-  (setq moe-light-pure-white-background-in-terminal t)
-
   (moe-light))
+
+(defun ml-dark-theme ()
+  (interactive)
+  (setq moe-theme-highlight-buffer-id nil)
+  (setq moe-theme-mode-line-color 'orange)
+
+  (set-face-attribute 'whitespace-line nil
+                      :foreground 'unspecified
+                      :background black-4)
+
+  (moe-dark))
 
 (ml-light-theme)
 
 (add-hook 'after-init-hook 'ml-customize-faces)
-
-;; use only one desktop
-;; (setq desktop-path '("~/.emacs.d/")
-;;       desktop-dirname "~/.emacs.d/"
-;;       desktop-restore-eager 0)
-
-;; (desktop-save-mode +1)
+(when window-system (add-hook 'after-init-hook 'ml-customizations-for-window-system))
