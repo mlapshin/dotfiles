@@ -62,11 +62,11 @@
   (setq moe-theme-highlight-buffer-id nil)
   (setq moe-theme-mode-line-color 'orange)
 
+  (moe-dark)
+
   (set-face-attribute 'whitespace-line nil
                       :foreground 'unspecified
-                      :background black-4)
-
-  (moe-dark))
+                      :background "#4e4e4e"))
 
 (ml-light-theme)
 

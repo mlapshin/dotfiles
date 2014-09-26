@@ -16,6 +16,7 @@
      port)))
  '(standard-indent 2)
  '(tab-width 2)
+ '(truncate-lines t)
  '(web-mode-code-indent-offset 2 t)
  '(web-mode-markup-indent-offset 2 t))
 (custom-set-faces
