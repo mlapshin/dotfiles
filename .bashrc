@@ -38,7 +38,6 @@ fi
 
 alias g='git'
 alias gs='git status'
-alias e='emacsclient -t'
 alias tmx='tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME'
 
 alias v='vagrant'
@@ -47,14 +46,15 @@ if [ $HOSTNAME == "air.local" ]; then
   source ~/dotfiles/git-completion.bash
   __git_complete g _git
 
-  alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10.9/emacsclient'
+  alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9/emacsclient'
   alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+  alias e='emacsclient -nw'
+
+  export NVM_DIR="/Users/mlapshin/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 else
   complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
       || complete -o default -o nospace -F _git g
 fi
 
 PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\]$(__git_ps1 " (%s)") \[\e[1;32m\]\$\[\e[m\] '
-
-export NVM_DIR="/Users/mlapshin/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

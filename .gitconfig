@@ -46,7 +46,7 @@
   r = reset
   p = push
 [core]
-	editor = emacsclient -t
+	editor = /Applications/Emacs.app/Contents/MacOS/bin-x86_64-10.9/emacsclient -t
 [pull]
 	default = matching
 [diff]

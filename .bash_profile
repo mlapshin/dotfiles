@@ -4,12 +4,10 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-export PATH="$HOME/go/bin:$HOME/.rbenv/bin:$HOME/bin:$HOME/.cask/bin:$PATH"
 export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$HOME/.rbenv/bin:$HOME/bin:$HOME/.cask/bin:$PATH"
 
 if [ $HOSTNAME = "rusty" ]; then
     eval "$(rbenv init -)"
     eval $(ssh-agent)
 fi
-
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
