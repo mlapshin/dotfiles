@@ -2,8 +2,8 @@
 # ~/.bash_profile
 #
 
-export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$HOME/.rbenv/bin:$HOME/bin:$HOME/.cask/bin:$PATH"
+export GOPATH="$HOME/work/go"
+export PATH="$GOPATH/bin:$PATH"
 
 export LANG="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
