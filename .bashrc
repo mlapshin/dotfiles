@@ -26,5 +26,7 @@ export NVM_DIR="/Users/mlapshin/.nvm"
 
 PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\]$(__git_ps1 " (%s)") \[\e[1;32m\]\$\[\e[m\] '
 
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin/
+
 # http://www.norbauer.com/rails-consulting/notes/ls-colors-and-terminal-app.html
 export LSCOLORS="ExGxBxDxCxEAEdxbxgxcxd"
