@@ -20,6 +20,7 @@ __git_complete g _git
 alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9/emacsclient'
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 alias e='emacsclient -nw'
+alias d='docker'
 
 export NVM_DIR="/Users/mlapshin/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
