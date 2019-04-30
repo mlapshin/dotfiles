@@ -15,3 +15,9 @@ export LC_TIME="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/mike/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/mike/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/mike/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/mike/Downloads/google-cloud-sdk/completion.bash.inc'; fi
