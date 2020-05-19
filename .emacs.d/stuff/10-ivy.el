@@ -1,11 +1,14 @@
 (use-package ivy
-  :init
-  (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
-
   :config
 
   (use-package counsel)
+  (use-package flx)
+
+  (require 'flx)
   (ivy-mode 1)
+
+  (setq-default ivy-use-virtual-buffers t)
+  (setq-default ivy-re-builders-alist '((t . ivy--regex-plus)))
 
   :bind (("C-s" . swiper)
          ("M-x" . counsel-M-x)

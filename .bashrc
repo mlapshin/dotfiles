@@ -21,13 +21,19 @@ alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9/emacsc
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 alias e='emacsclient -nw'
 alias d='docker'
-
-export NVM_DIR="/Users/mlapshin/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+alias k='kubectl'
 
 PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\]$(__git_ps1 " (%s)") \[\e[1;32m\]\$\[\e[m\] '
 
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin/
-
 # http://www.norbauer.com/rails-consulting/notes/ls-colors-and-terminal-app.html
 export LSCOLORS="ExGxBxDxCxEAEdxbxgxcxd"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /Users/mlapshin/work/haven-mapper/node_modules/tabtab/.completions/serverless.bash ] && . /Users/mlapshin/work/haven-mapper/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /Users/mlapshin/work/haven-mapper/node_modules/tabtab/.completions/sls.bash ] && . /Users/mlapshin/work/haven-mapper/node_modules/tabtab/.completions/sls.bash
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[ -f /Users/mlapshin/work/haven-mapper/node_modules/tabtab/.completions/slss.bash ] && . /Users/mlapshin/work/haven-mapper/node_modules/tabtab/.completions/slss.bash

@@ -17,7 +17,7 @@
                 "M-L" "M-H"
                 "M-K" "M-J")))
     (dolist (k keys)
-      (define-key (current-local-map) (kbd k) nil))))
+      (local-set-key (kbd k) nil))))
 
 (defun ml-remap-movement-keys (keymap)
   (let ((mappings '(("C-f" . "M-l")

@@ -49,5 +49,6 @@
 	editor = /Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9/emacsclient -t
 [pull]
 	default = matching
+	rebase = true
 [diff]
 	algorithm = patience

@@ -18,3 +18,7 @@
 /.emacs.d/projectile-bookmarks.eld
 /.emacs.d/projectile.cache
 /.DS_Store
+.emacs.d/recentf
+/.emacs.d/.lsp-session-v1
+/.emacs.d/abbrev_defs
+/.emacs.d/stuff/00-init.el
