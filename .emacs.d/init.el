@@ -1,13 +1,10 @@
 (let ((emacsd-dir (file-name-directory load-file-name)))
-  (add-to-list 'load-path (concat emacsd-dir "/vendor/use-package"))
-  (add-to-list 'load-path (concat emacsd-dir "/vendor"))
+  ;;(add-to-list 'load-path (concat emacsd-dir "/vendor/use-package"))
+  ;;(add-to-list 'load-path (concat emacsd-dir "/vendor"))
 
+  (setenv "PATH" (concat (getenv "PATH") ":/opt/homebrew/bin"))
+  (setq exec-path (append exec-path '("/opt/homebrew/bin")))
 
-  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-  (setq exec-path (append exec-path '("/usr/local/bin")))
-
-
-  (require 'use-package)
 
   (require 'package)
 
@@ -16,7 +13,8 @@
                '("melpa" . "http://melpa.org/packages/"))
   
   (package-initialize)
-
+  (package-install 'use-package)
+  (require 'use-package)
   (require 'use-package-ensure)
   (setq use-package-always-ensure t)
 

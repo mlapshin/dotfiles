@@ -20,10 +20,11 @@
   :commands lsp)
 
 (use-package go-eldoc)
-(use-package company-lsp
-  :config
-  (require 'company-lsp)
-  (push 'company-lsp company-backends))
+
+;; (use-package company-lsp
+;;   :config
+;;   (require 'company-lsp)
+;;   (push 'company-lsp company-backends))
 
 ;; (setq company-go-gocode-command "/Users/mlapshin/work/go/bin/gocode")
 (setq go-eldoc-gocode "/Users/mlapshin/work/go/bin/gocode")
