@@ -1,6 +1,6 @@
 (use-package company
-  :config
-  (global-company-mode 1)
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
   (setq company-backends '((company-capf)))
 
   :bind (:map company-active-map

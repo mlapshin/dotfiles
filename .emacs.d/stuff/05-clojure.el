@@ -1,1 +1,3 @@
-(use-package cider)
+(use-package cider
+  :init
+  (setq cider-auto-select-error-buffer nil))

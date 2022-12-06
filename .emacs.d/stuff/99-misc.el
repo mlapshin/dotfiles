@@ -1,3 +1,3 @@
 (use-package ag
   :init
-  (setq ag-executable "/usr/local/bin/ag"))
+  (setq ag-executable "/opt/homebrew/bin/ag"))

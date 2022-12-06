@@ -15,7 +15,7 @@
   (powerline-moe-theme)
 
   (when window-system
-    (set-face-attribute 'default nil :family "Hack" :height 135)))
+    (set-face-attribute 'default nil :family "Fragment Mono" :height 135)))
 
 ;; (set-face-attribute 'whitespace-line nil
 ;; 		    :foreground 'unspecified

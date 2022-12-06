@@ -23,3 +23,5 @@
 /.emacs.d/abbrev_defs
 /.emacs.d/stuff/00-init.el
 /.emacs.d/eln-cache/
+/.emacs.d/projects
+/.emacs.d/transient/*
